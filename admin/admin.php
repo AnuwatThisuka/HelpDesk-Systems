@@ -20,6 +20,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../static/dist/tailwind.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" rel="stylesheet">
     <script>
     // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
     if (
@@ -31,6 +32,8 @@ if (!isset($_SESSION['id'])) {
     } else {
         document.documentElement.classList.remove('dark');
     }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js">
     </script>
 </head>
 
@@ -193,7 +196,7 @@ if (!isset($_SESSION['id'])) {
                                             <h1 class="text-white dark:text-gray-100 text-5xl">
                                                 <?php
                                                 $name = $_SESSION['name'];
-                                                $sql = "SELECT COUNT(*) FROM users WHERE role = 'repairman'";
+                                                $sql = "SELECT COUNT(*) FROM users WHERE role = 'member'";
                                                 $result = $dbcon->query($sql);
                                                 $row = $result->fetch_row();
                                                 echo $row[0];
@@ -213,7 +216,7 @@ if (!isset($_SESSION['id'])) {
                                             <h1 class="text-white dark:text-gray-100 text-5xl">
                                                 <?php
                                                 $name = $_SESSION['name'];
-                                                $sql = "SELECT COUNT(*) FROM users WHERE role = 'member'";
+                                                $sql = "SELECT COUNT(*) FROM users WHERE role = 'repairman'";
                                                 $result = $dbcon->query($sql);
                                                 $row = $result->fetch_row();
                                                 echo $row[0];
@@ -225,8 +228,162 @@ if (!isset($_SESSION['id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class=" p-4">
+                        <div class="bg-gray-200 w-full h-auto p-6 flex justify-around">
+                            <!-- main chart -->
+                            <!-- chart user -->
+                            <div class=" px-6 py-6 bg-white w-5/12 h-auto text-sm text-white rounded-3xl">
+                                <div class="pb-4 px-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-700"><i
+                                                class="fa-solid fa-chart-pie px-1"></i>ชาร์ตจำนวนผู้ใช้งานทั้งหมด</span>
+                                        <button id="btnDownload"
+                                            class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
+                                            type='button'>
+                                            <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
+                                            บันทึก
+                                        </button>
+                                    </div>
+                                    <script>
 
+                                    </script>
+                                </div>
+                                <canvas id="pie-chart" class="text-white"></canvas>
+                                <script>
+                                var ctx = document.getElementById('pie-chart').getContext('2d');
+                                var role2 = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                        labels: ['แอดมิน [<?php echo "$user_total" ?>]',
+                                            'พนักงานซ่อม [<?php echo "$user_member" ?>]',
+                                            'ผู้ใช้งาน [<?php echo "$user_repairman" ?>]'
+                                        ],
+                                        datasets: [{
+                                            label: '# of Users',
+                                            data: [<?php echo "$user_total" ?>,
+                                                <?php echo "$user_member" ?>,
+                                                <?php echo "$user_repairman" ?>
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)'
+                                            ],
+                                        }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: ''
+                                        },
+                                        font: {
+                                            size: 16,
+                                            family: 'Noto Sans Thai',
+                                        },
+                                        datalabel: {
+                                            color: '#000000'
+                                        }
+                                    }
+                                });
+                                </script>
+                            </div>
+                            <div class=" px-6 py-6 bg-white w-5/12 h-auto text-sm text-white rounded-3xl">
+                                <div class="pb-4 px-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-gray-700 text-center"><i
+                                                class="fa-solid fa-chart-pie px-1"></i>ชาร์ตจำนวนการแจ้งซ่อมทั้งหมด
+                                        </span>
+                                        <button id="btnDownload"
+                                            class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
+                                            type='button'>
+                                            <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
+                                            บันทึก
+                                        </button>
+                                    </div>
+                                </div>
+                                <?php
+                                    $sql = "SELECT COUNT(*) FROM ticket ";
+                                    $result = $dbcon->query($sql);
+                                    $row = $result->fetch_row();
+                                    echo $row[0];
+                                    $job_total = $row[0];
+                                    ?>
+                                <?php
+                                    $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'waiting'";
+                                    $result = $dbcon->query($sql);
+                                    $row = $result->fetch_row();
+                                    echo $row[0];
+                                    $job_waiting = $row[0];
+                                    ?>
+                                <?php
+                                    $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'pending'";
+                                    $result = $dbcon->query($sql);
+                                    $row = $result->fetch_row();
+                                    echo $row[0];
+                                    $job_pending = $row[0];
+                                    ?>
+                                <?php
+                                    $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'success'";
+                                    $result = $dbcon->query($sql);
+                                    $row = $result->fetch_row();
+                                    echo $row[0];
+                                    $job_success = $row[0];
+                                    ?>
+                                <canvas id="pie-chart2" class="text-white"></canvas>
+                                <script>
+                                var ctx = document.getElementById('pie-chart2').getContext('2d');
+                                var role3 = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                        labels: ['การแจ้งซ่อมสถานะรอ [<?php echo "$job_waiting" ?>]',
+                                            'การแจ้งซ่อมสถานะกำลังดำเนินการ [<?php echo "$job_pending" ?>]',
+                                            'การแจ้งซ่อมสถานะเสร็จแล้ว [<?php echo "$job_success" ?>]'
+                                        ],
+                                        datasets: [{
+                                            label: '# of Users',
+                                            data: [<?php echo "$job_waiting" ?>,
+                                                <?php echo "$job_pending" ?>,
+                                                <?php echo "$job_success" ?>
+                                            ],
+                                            backgroundColor: [
+
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 206, 86, 1)'
+                                            ],
+                                            borderColor: [
+
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 206, 86, 1)'
+                                            ],
+                                        }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: ''
+                                        },
+                                        tooltips: {
+                                            mode: 'index',
+                                            bodySpacing: 5,
+                                            bodyFontFamily: 'Noto Sans Thai',
+                                            bodyFontSize: 20
+                                        }
+                                    }
+                                });
+                                </script>
+                            </div>
                         </div>
                     </main>
                 </div>
