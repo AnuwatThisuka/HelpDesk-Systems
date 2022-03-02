@@ -195,7 +195,7 @@ if (!isset($_SESSION['id'])) {
                                 <div class="px-10 pt-4 pb-2 text-gray-700 text-sm font-bold">ประเมินการแจ้งซ่อมของ :
                                     <?php echo "$id" ?>
                                 </div>
-                                <form action='rate.php' method='post'>
+                                <form action="./rate.php" method="POST">
                                     <input hidden name='job_id' value='<?php echo $id ?>' />
                                     <input hidden name='repairman_id' value='<?php echo $repairman_id ?>' />
                                     <div class=" px-10 py-1">
