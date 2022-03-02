@@ -8,10 +8,6 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header("Location: form_login.php");
 }
-if ($_SESSION['role'] != 'member') {
-    header("Location: admin.php");
-}
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -308,33 +304,57 @@ if ($_SESSION['role'] != 'member') {
                                             </div>
                                         </div>
                                         <div class="py-4">
-                                            <button type="submit" value=""
+                                            <input type="submit" value="ยืนยัน"
+                                                class="bg-green-500 text-base hover:bg-green-700 text-white w-1/5 py-2 px-4 rounded-full">
+                                            <!-- test
+                                            <button type="submit" value="ยืนยัน"
                                                 class="bg-green-500 text-base hover:bg-green-700 text-white w-1/5 py-2 px-4 rounded-full">
                                                 ส่งผลการประเมิณ
-                                            </button>
+                                            </button> -->
                                         </div>
+                                        <?php
+                                            $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
+                                            $result = $dbcon->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                    $id = $row["id"];
+                                                    $room = $row["room"];
+                                                    $item = $row["item"];
+                                                    $serial_num = $row["serial_num"];
+                                                    $detail = $row["detail"];
+                                                    $submitted_name = $row["submitted_name"];
+                                                    $user_id = $row["user_id"];
+                                                    $repairman = $row["repairman"];
+                                                    $repairman_id = $row['repairman_id'];
+                                                    $job_status = $row["job_status"];
+                                                    $created_at = $row["created_at"];
+                                                    $pending_at = $row["pending_at"];
+                                                    $success_at = $row["success_at"];
+                                                }
+                                            }
+                                        ?>
                                     </div>
                                     <?php
-                                    $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
-                                    $result = $dbcon->query($sql);
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                            $id = $row["id"];
-                                            $room = $row["room"];
-                                            $item = $row["item"];
-                                            $serial_num = $row["serial_num"];
-                                            $detail = $row["detail"];
-                                            $submitted_name = $row["submitted_name"];
-                                            $user_id = $row["user_id"];
-                                            $repairman = $row["repairman"];
-                                            $repairman_id = $row['repairman_id'];
-                                            $job_status = $row["job_status"];
-                                            $created_at = $row["created_at"];
-                                            $pending_at = $row["pending_at"];
-                                            $success_at = $row["success_at"];
-                                        }
-                                    }
-                                ?>
+                                            $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
+                                            $result = $dbcon->query($sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                    $id = $row["id"];
+                                                    $room = $row["room"];
+                                                    $item = $row["item"];
+                                                    $serial_num = $row["serial_num"];
+                                                    $detail = $row["detail"];
+                                                    $submitted_name = $row["submitted_name"];
+                                                    $user_id = $row["user_id"];
+                                                    $repairman = $row["repairman"];
+                                                    $repairman_id = $row['repairman_id'];
+                                                    $job_status = $row["job_status"];
+                                                    $created_at = $row["created_at"];
+                                                    $pending_at = $row["pending_at"];
+                                                    $success_at = $row["success_at"];
+                                                }
+                                            }
+                                        ?>
                                 </form>
                             </div>
                         </div>

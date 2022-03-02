@@ -115,13 +115,10 @@ WHERE user_id = '$repairman_id'";
 $result = mysqli_query($dbcon, $sql);
 
 if ($result) {
-    echo "<script type='text/javascript'>
-    swal('เรียบร้อย','ทำการส่งผลการประเมิณไปยังระบบเรียบร้อยแล้ว', 'success')
-    .then((value) => {
-    window.location.href='./detailrate.php';
-    });
-  </script>
-  ";
+    echo "<script>
+                alert('ประเมินสำเร็จ \\nคุณได้ประเมินการแจ้งซ่อมที่ " . $job_id ."');
+                window.location.href='detailrate.php';
+            </script>";
 } else {
     echo "เกิดข้อผิดพลาด " . mysqli_error($dbcon);
 }
@@ -131,7 +128,6 @@ $result2 = mysqli_query($dbcon, $sql2);
 
 mysqli_close($dbcon);
 ?>
-
 
 </body>
 

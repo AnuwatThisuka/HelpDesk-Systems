@@ -180,7 +180,7 @@ if (!isset($_SESSION['id'])) {
                                     </div>
                                     <div class="flex items-center">
                                         <a class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg text-white mr-4 cursor-pointer "
-                                            type='button' href="./exportUser.php">
+                                            type='button' href="./exportItem.php">
                                             <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
                                             บันทึก
                                         </a>

@@ -182,7 +182,7 @@ if (!isset($_SESSION['id'])) {
                                         <a class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg text-white mr-4 cursor-pointer "
                                             type='button' href="./exportUser.php">
                                             <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
-                                            บันทึก
+                                            บันทึกรายงาน
                                         </a>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@ if (!isset($_SESSION['id'])) {
                                                     echo "  <td>
                                                                 <div class='py-3 flex justify-center'>
                                                                     <div tabindex='-1' role='menu' aria-hidden='true' class='flex justify-center items-center'>
-                                                                        <form action='./detailuser.php' method='post'>
+                                                                        <form action='./detail_mainternance.php' method='post'>
                                                                             <input type='hidden' name='user_id' value='" . $row['user_id'] . "'>
                                                                             <button type='submit' tabindex='0' class='bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-md px-2 py-2'>ดูรายละเอียด</button>
                                                                         </form>
