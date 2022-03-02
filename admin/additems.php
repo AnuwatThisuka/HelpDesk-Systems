@@ -16,21 +16,17 @@ if (!isset($_SESSION['id'])) {
 <head>
     <title>HelpDesk Systems</title>
     <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet" type="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../static/dist/tailwind.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
-    // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
-    if (
-        localStorage.getItem('color-theme') === 'dark' ||
-        (!('color-theme' in localStorage) &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+            '(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
     } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove('dark')
     }
     </script>
 </head>
@@ -53,16 +49,25 @@ if (!isset($_SESSION['id'])) {
                     </div>
 
                     <nav class="flex flex-col mt-10 px-1">
-                        <a href="./mainternance.php"
-                            class="py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
+                        <a href="./admin.php"
+                            class=" py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
                             <i class="fa-solid fa-house-chimney-user px-2 text-lg"></i>หน้าหลัก</a>
-
-                        <a href="./pending_job.php"
-                            class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-wrench px-2 text-lg"></i>ปัญหาที่อยู่ในระหว่างดำเนินการ</a>
-                        <a href="./success_job.php"
+                        <a href="./alluser.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-circle-check px-2 text-lg"></i>ปัญหาที่ได้รับการแก้ไขแล้ว</a>
+                            <i class="fa-solid fa-circle-info px-2 text-lg"></i>รายชื่อผู้ใช้งาน</a>
+                        <a href="./allmainternance.php"
+                            class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
+                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รายชื่อพนักงานซ่อม</a>
+                        <a href="allitems.php"
+                            class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
+                            <i class="fa-solid fa-store px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
+                        <a href="all_tick.php"
+                            class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
+                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหา</a>
+                        <a href="detailrate.php"
+                            class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
+                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>ประเมินการซ่อมของพนักงาน
+                        </a>
                         <a href="../logout.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"><i
                                 class="fa-solid fa-arrow-right-from-bracket px-2 text-lg"></i>ออกจากระบบ</a>
@@ -73,25 +78,26 @@ if (!isset($_SESSION['id'])) {
                     <header class="flex justify-between items-center p-6">
                         <div class="flex items-center space-x-4 lg:space-x-0">
                             <button @click="sidebarOpen = true"
-                                class="text-gray-700 dark:text-gray-300 focus:outline-none lg:hidden">
+                                class="text-gray-500 dark:text-gray-300 focus:outline-none lg:hidden">
                                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </button>
 
-                            <div class="">
+                            <div>
                                 <h1 class="text-2xl text-gray-800 dark:text-white"><i
-                                        class="fa-solid fa-wrench px-2 text-lg"></i>หน้าปัญหาที่อยู่ในระหว่างดำเนินการ
+                                        class="fa-solid fa-circle-plus px-2"></i>หน้าเพิ่มรายชื่อ สิ่งของ/คุรุภัณฑ์
+
                                 </h1>
-                                <p class="text-base text-gray-800 dark:text-white">
-                                    หน้าหลักจะแสดงข้อมูลปัญหาที่อยู่ในระหว่างดำเนินการ
+                                <p class="text-sm text-gray-800 dark:text-white">
+                                    หน้าเพิ่มรายชื่อ สิ่งของ/คุรุภัณฑ์
                                 </p>
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-4 ">
-                            <button @click="darkMode = !darkMode "
+                        <div class="flex items-center space-x-4">
+                            <button @click="darkMode = !darkMode"
                                 class="flex text-gray-600 dark:text-gray-300 focus:outline-none"
                                 aria-label="Color Mode">
                                 <svg x-show="darkMode" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -104,6 +110,15 @@ if (!isset($_SESSION['id'])) {
                                 </svg>
                             </button>
                             <button class="flex text-gray-600 dark:text-gray-300 focus:outline-none">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+
+                            <button class="flex text-gray-600 dark:text-gray-300 focus:outline-none">
                                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9"
@@ -115,7 +130,7 @@ if (!isset($_SESSION['id'])) {
                             <div x-data="{ dropdownOpen: false }" class="relative">
                                 <button @click="dropdownOpen = ! dropdownOpen"
                                     class="flex items-center space-x-2 relative focus:outline-none">
-                                    <h2 class="text-gray-700 dark:text-gray-300 text-base hidden sm:block">
+                                    <h2 class="text-gray-700 dark:text-gray-300 text-sm hidden sm:block">
                                         <?php echo " " . $_SESSION['name'] . " " ?>
                                     </h2>
                                     <img class="h-10 w-10 rounded-full border-2 border-purple-500 object-cover"
@@ -144,80 +159,43 @@ if (!isset($_SESSION['id'])) {
 
                     <main class="overflow-y-scroll py-10">
                         <div class="text-3xl text-gray-700 px-4">
-                            <h1 class="text-3xl text-gray-700 uppercase">ยินดีต้อนรับ คุณ
+                            <h1 class="text-3xl text-gray-700">ยินดีต้อนรับ คุณ
                                 <?php echo " " . $_SESSION['name'] . " " ?>
                             </h1>
-                            <h3 class="text-2xl text-gray-700 uppercase">แผนก :
+                            <h3 class="text-2xl text-gray-700">แผนก
                                 <?php echo " " . $_SESSION['department'] . " " ?>
                             </h3>
                         </div>
-                        <div class="bg-white p-4">
-                            <div class=" bg-gray-200 container mx-auto px-1 py-4 ">
-
-                                <div class="text-gray-700 text-base flex flex-col">
-
-                                    <?php
-                                    $repairman_id = $_SESSION['user_id'];
-                                    $sql = "SELECT * FROM ticket WHERE job_status = 'pending' AND repairman_id = $repairman_id ORDER BY pending_at ASC";
-                                    $result = $dbcon->query($sql);
-                                    if ($result -> num_rows > 0) {
-                                        echo "<table class='mb-0 rounded-3xl w-full'>";
-                                        echo "<tr align='center' class=' bg-blue-600 text-white h-12 py-4 px-4 text-base font-thin'>";
-                                        echo "<th>รหัสการแจ้งปัญหา</th>";
-                                        echo "<th>ห้อง</th>";
-                                        echo "<th>สิ่งของ</th>";
-                                        echo "<th>Serial Number</th>";
-                                        echo "<th>รายละเอียด</th>";
-                                        echo "<th>ชื่อผู้แจ้งซ่อม</th>";
-                                        echo "<th>แจ้งเมื่อ</th>";
-                                        echo "<th>รับงานเมื่อ</th>";
-                                        echo "<th>สถานะ</th>";
-                                        echo "<th>ส่งงาน</th>";
-                                        echo "</tr>";
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo "<tr align='center' class='bg-white text-sm shadow-md rounded-2xl h-8 border-b-2 hover:bg-gray-200'>";
-                                            echo "<td>" . $row["id"] . "</td>";
-                                            echo "<td>" . $row["room"] . "</td>";
-                                            echo "<td>" . $row["item"] . "</td>";
-                                            echo "<td>" . $row["serial_num"] . "</td>";
-                                            echo "<td>" . $row["detail"] . "</td>";
-                                            echo "<td>" . $row["submitted_name"] . "</td>";
-                                            echo "<td>" . $row["created_at"] . "</td>";
-                                            echo "<td>" . $row["pending_at"] . "</td>";
-                                            echo "<td>" . "<div class='bg-yellow-500 text-gray-700 rounded-md py-2 uppercase text-sm'>" . $row["job_status"] . "</div>" . "</td>";
-                                            echo "<td class='py-3 text-center'>
-                                                                <div class=''>
-                                                                <div class=''>
-                                                                <div class='dropdown dropdown-left'>
-                                                                    <label tabindex='0' class=' btn bg-green-600 border-green-600 hover:bg-green-700 hover:border-green-700 text-sm text-white'>ส่งงาน</label>
-                                                                    <ul tabindex='0' class=' shadow bg-white menu dropdown-content rounded-box w-32'>                                    
-                                                                        <li class='w-full'>
-                                                                        <form action='./success_jobs.php' method='post'>
-                                                                            <input type='hidden' name='id' value='" . $row['id'] . "'>
-                                                                            <button type='submit' tabindex='0' class='w-full hover:bg'>ส่งงาน</button>
-                                                                        </form>
-                                                                        </li>                                      
-                                                                        <li class='w-full'>
-                                                                        <form action='./detail.php' method='post'>
-                                                                            <input type='hidden' name='id' value='" . $row['id'] . "'>
-                                                                            <button type='submit' tabindex='0' class='w-full h-auto py-1'>ดูรายละเอียด</button>
-                                                                        </form>
-                                                                        </li> 
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                                </div>
-                                                          </td>";
-                                            echo "</tr>";
-                                        }
-                                    } else {
-                                        echo "
-                                                <div>
-                                                    <p class='text-sm px-4'> <i class='fa-solid fa-circle-exclamation px-2 text-lg'></i>ขณะนี้ไม่มีการแจ้งซ่อม</p>
-                                                </div>
-                                                ";
-                                    }
-                                    ?>
+                        <div class=" bg-gray-200 container mx-auto px-4 py-4 rounded-3xl rounded-t-none">
+                            <div class="bg-blue-500 w-full flex justify-between rounded-3xl rounded-b-none">
+                                <h1 class="px-4 py-6 text-gray-700 text-base font-bold"><i
+                                        class="fa-solid fa-circle-plus px-2 text-lg"></i>เพิ่มรายชื่อ สิ่งของ/คุรุภัณฑ์
+                                </h1>
+                            </div>
+                            <div class="bg-white rounded-3xl rounded-t-none">
+                                <div class=" container mx-auto">
+                                    <form name="register" id="register" action="./add_items.php" method="POST">
+                                        <div class="mx-4 mb-4 flex">
+                                            <div class="w-full text-gray-700 mt-4">
+                                                <label class="block" for="id">ชื่อสิ่งของ/คุรุภัณฑ์<label>
+                                                        <input type="text" placeholder="เช่น เมาส์, คีย์บอร์ด"
+                                                            name="item" required autofocus
+                                                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                            </div>
+                                        </div>
+                                        <div class="pt-2 pb-4 flex items-center px-5">
+                                            <button
+                                                class="bg-green-500 hover:bg-green-700 text-white py-2 px-8 rounded-full mr-10">
+                                                <i class="fa-solid fa-circle-plus pr-2 "></i>เพิ่มสิ่งของ/คุรุภัณฑ์
+                                            </button>
+                                            <button
+                                                class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full"
+                                                onclick="
+                                            history.back()">
+                                                ย้อนกลับ
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -226,8 +204,6 @@ if (!isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
-
-    <script src="../main.js"></script>
 </body>
 
 </html>

@@ -223,7 +223,7 @@ if (!isset($_SESSION['id'])) {
                                     <?php
                                     $sql = "SELECT * FROM ticket WHERE job_status = 'waiting'";
                                     $result = $dbcon->query($sql);
-                                    if ($result->num_rows > 0) {
+                                    if ($result !== false && $result -> num_rows > 0) {
                                         echo "<table class='mb-0 rounded-3xl w-full'>";
                                         echo "<tr align='center' class=' bg-blue-600 text-white h-12 py-4 px-4 text-base font-thin'>";
                                         echo "<th>รหัสการแจ้งปัญหา</th>";
