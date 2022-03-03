@@ -17,20 +17,7 @@
         <link href="../static/dist/tailwind.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" rel="stylesheet">
-        <script>
-        // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
-        if (
-            localStorage.getItem('color-theme') === 'dark' ||
-            (!('color-theme' in localStorage) &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches)
-        ) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js">
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
     </head>
 
     <body class="mx-0 my-0 font-display">
@@ -40,7 +27,6 @@
                 <div class="flex h-screen bg-gray-100 dark:bg-gray-800">
                     <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false"
                         class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
-
                     <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'"
                         class="fixed z-30 inset-y-0 left-0 w-60 transition duration-300 transform bg-gray-900 dark:bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0 px-6">
                         <div class="flex items-center justify-center mt-8">
@@ -49,7 +35,6 @@
                                         class="fa-solid fa-screwdriver-wrench p-2"></i>ระบบแจ้งซ่อม</span>
                             </div>
                         </div>
-
                         <nav class="flex flex-col mt-10 px-1">
                             <a href="./admin.php"
                                 class="py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
@@ -75,7 +60,6 @@
                                 <i class="fa-solid fa-arrow-right-from-bracket pr-2 text-lg"></i>ออกจากระบบ</a>
                         </nav>
                     </div>
-
                     <div class="flex-1 flex flex-col overflow-hidden">
                         <header class="flex justify-between items-center p-6">
                             <div class="flex items-center space-x-4 lg:space-x-0">
@@ -96,7 +80,6 @@
                                     </p>
                                 </div>
                             </div>
-
                             <div class="flex items-center space-x-4 ">
                                 <button @click="darkMode = !darkMode "
                                     class="flex text-gray-600 dark:text-gray-300 focus:outline-none"
@@ -119,7 +102,6 @@
                                             stroke-linejoin="round" />
                                     </svg>
                                 </button>
-
                                 <div x-data="{ dropdownOpen: false }" class="relative">
                                     <button @click="dropdownOpen = ! dropdownOpen"
                                         class="flex items-center space-x-2 relative focus:outline-none">
@@ -149,7 +131,6 @@
                                 </div>
                             </div>
                         </header>
-
                         <main class="overflow-y-scroll py-10">
                             <div class="text-3xl text-gray-700 px-4">
                                 <h1 class="text-3xl text-gray-700 uppercase">ยินดีต้อนรับ คุณ
@@ -173,13 +154,13 @@
                                             <div class="flex justify-between">
                                                 <h1 class="text-white dark:text-gray-100 text-5xl">
                                                     <?php
-                                                $name = $_SESSION['name'];
-                                                $sql = "SELECT COUNT(*) FROM users WHERE role ='admin'";
-                                                $result = $dbcon->query($sql);
-                                                $row = $result->fetch_row();
-                                                echo $row[0];
-                                                $user_total = $row[0];
-                                                ?>
+                                                    $name = $_SESSION['name'];
+                                                    $sql = "SELECT COUNT(*) FROM users WHERE role ='admin'";
+                                                    $result = $dbcon->query($sql);
+                                                    $row = $result->fetch_row();
+                                                    echo $row[0];
+                                                    $user_total = $row[0];
+                                                    ?>
                                                 </h1>
                                             </div>
                                         </div>
@@ -193,13 +174,13 @@
                                             <div class="flex justify-between">
                                                 <h1 class="text-white dark:text-gray-100 text-5xl">
                                                     <?php
-                                                $name = $_SESSION['name'];
-                                                $sql = "SELECT COUNT(*) FROM users WHERE role = 'member'";
-                                                $result = $dbcon->query($sql);
-                                                $row = $result->fetch_row();
-                                                echo $row[0];
-                                                $user_member = $row[0];
-                                                ?>
+                                                    $name = $_SESSION['name'];
+                                                    $sql = "SELECT COUNT(*) FROM users WHERE role = 'member'";
+                                                    $result = $dbcon->query($sql);
+                                                    $row = $result->fetch_row();
+                                                    echo $row[0];
+                                                    $user_member = $row[0];
+                                                    ?>
                                                 </h1>
                                             </div>
                                         </div>
@@ -213,13 +194,13 @@
                                             <div class="flex justify-between">
                                                 <h1 class="text-white dark:text-gray-100 text-5xl">
                                                     <?php
-                                                $name = $_SESSION['name'];
-                                                $sql = "SELECT COUNT(*) FROM users WHERE role = 'repairman'";
-                                                $result = $dbcon->query($sql);
-                                                $row = $result->fetch_row();
-                                                echo $row[0];
-                                                $user_repairman = $row[0];
-                                                ?>
+                                                    $name = $_SESSION['name'];
+                                                    $sql = "SELECT COUNT(*) FROM users WHERE role = 'repairman'";
+                                                    $result = $dbcon->query($sql);
+                                                    $row = $result->fetch_row();
+                                                    echo $row[0];
+                                                    $user_repairman = $row[0];
+                                                    ?>
                                                 </h1>
                                             </div>
                                         </div>
@@ -241,9 +222,6 @@
                                                 บันทึก
                                             </button>
                                         </div>
-                                        <script>
-
-                                        </script>
                                     </div>
                                     <canvas id="pie-chart" class="text-white"></canvas>
                                     <script>
@@ -301,7 +279,7 @@
                                             <span class="text-gray-700 text-center"><i
                                                     class="fa-solid fa-chart-pie px-1"></i>ชาร์ตจำนวนการแจ้งซ่อมทั้งหมด
                                             </span>
-                                            <button id="btnDownload"
+                                            <button id="btnDownload2"
                                                 class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
                                                 type='button'>
                                                 <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
@@ -347,6 +325,96 @@
                                                 'การแจ้งซ่อมสถานะกำลังดำเนินการ [<?php echo "$job_pending" ?>]',
                                                 'การแจ้งซ่อมสถานะเสร็จแล้ว [<?php echo "$job_success" ?>]'
                                             ],
+
+
+                                            datasets: [{
+                                                label: '# of Users',
+                                                data: [<?php echo "$job_waiting" ?>,
+                                                    <?php echo "$job_pending" ?>,
+                                                    <?php echo "$job_success" ?>
+                                                ],
+                                                backgroundColor: [
+
+                                                    'rgba(75, 192, 192, 1)',
+                                                    'rgba(153, 102, 255, 1)',
+                                                    'rgba(255, 206, 86, 1)'
+                                                ],
+                                                borderColor: [
+
+                                                    'rgba(75, 192, 192, 1)',
+                                                    'rgba(153, 102, 255, 1)',
+                                                    'rgba(255, 206, 86, 1)'
+                                                ],
+                                            }]
+                                        },
+                                        options: {
+                                            title: {
+                                                display: true,
+                                                text: ''
+                                            },
+                                            tooltips: {
+                                                mode: 'index',
+                                                bodySpacing: 5,
+                                                bodyFontFamily: 'Noto Sans Thai',
+                                                bodyFontSize: 20
+                                            }
+                                        }
+                                    });
+                                    </script>
+                                    <script src="jquery-3.4.1.min.js"></script>
+                                    <script>
+                                    const btnDownload = document.querySelector('#btnDownload');
+                                    const myCanvas = document.querySelector('#pie_chart11');
+
+
+
+                                    const btnDownload2 = document.querySelector('#btnDownload2');
+                                    const myCanvas2 = document.querySelector('#pie_chart22');
+
+
+                                    btnDownload.addEventListener("click", function() {
+                                        console.log('click')
+                                        if (window.navigator.msSaveBlob) {
+                                            window.navigator.msSaveBlob(myCanvas.msSaveBlob(), "jobs.png");
+                                        } else {
+                                            const a = document.createElement("a");
+                                            document.body.appendChild(a);
+                                            a.href = myCanvas.toDataURL();
+                                            a.download = "jobs.png";
+                                            a.click();
+                                            document.body.removeChild(a);
+                                        }
+                                    });
+
+                                    btnDownload2.addEventListener("click", function() {
+                                        console.log('click')
+                                        if (window.navigator.msSaveBlob) {
+                                            window.navigator.msSaveBlob(myCanvas2.msSaveBlob(), "users.png");
+                                        } else {
+                                            const a = document.createElement("a");
+                                            document.body.appendChild(a);
+                                            a.href = myCanvas2.toDataURL();
+                                            a.download = "users.png";
+                                            a.click();
+                                            document.body.removeChild(a);
+                                        }
+                                    });
+                                    </script>
+                                    <div class="hidden">
+                                        <canvas class="hidden" id="pie-chart11"></canvas>
+                                        <canvas class="hidden" id="pie-chart22"></canvas>
+                                    </div>
+                                    <script>
+                                    var ctx = document.getElementById('pie-chart11').getContext('2d');
+                                    var role3 = new Chart(ctx, {
+                                        type: 'pie',
+                                        data: {
+                                            labels: ['การแจ้งซ่อมสถานะรอ [<?php echo "$job_waiting" ?>]',
+                                                'การแจ้งซ่อมสถานะกำลังดำเนินการ [<?php echo "$job_pending" ?>]',
+                                                'การแจ้งซ่อมสถานะเสร็จแล้ว [<?php echo "$job_success" ?>]'
+                                            ],
+
+
                                             datasets: [{
                                                 label: '# of Users',
                                                 data: [<?php echo "$job_waiting" ?>,
@@ -391,5 +459,6 @@
 
         <script src="../main.js"></script>
     </body>
+
 
     </html>
