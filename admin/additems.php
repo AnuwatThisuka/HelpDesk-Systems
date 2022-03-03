@@ -20,15 +20,6 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../static/dist/tailwind.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-            '(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-    </script>
 </head>
 
 <body class="mx-0 my-0 font-display">
@@ -61,12 +52,12 @@ if (!isset($_SESSION['id'])) {
                         <a href="allitems.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
                             <i class="fa-solid fa-store px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
-                        <a href="all_tick.php"
+                        <a href="allroom.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหา</a>
-                        <a href="detailrate.php"
+                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>สถานที่ปฎิบัติงาน</a>
+                        <a href="alldep.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>ประเมินการซ่อมของพนักงาน
+                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>แผนก
                         </a>
                         <a href="../logout.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"><i

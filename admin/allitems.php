@@ -61,12 +61,12 @@ if (!isset($_SESSION['id'])) {
                         <a href="allitems.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
                             <i class="fa-solid fa-store px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
-                        <a href="all_tick.php"
+                        <a href="allroom.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหา</a>
-                        <a href="detailrate.php"
+                            <i class="fa-solid fa-map-location-dot px-2 text-lg"></i>สถานที่ปฎิบัติงาน</a>
+                        <a href="alldep.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>ประเมินการซ่อมของพนักงาน
+                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>แผนก
                         </a>
                         <a href="../logout.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"><i
@@ -231,7 +231,7 @@ if (!isset($_SESSION['id'])) {
                                                 echo "<div class='flex flex-col bg-blue-500 py-1'>
                                                         <div class='px-4 flex flex-col text-sm '>
                                                             <p class='uppercase'>ไม่มีรายชื่อผู้ใช้งานในระบบ</p>
-                                                        
+
                                                         </div>
                                                         <div class='px-4 text-sm bg-yellow-500 w-24 rounded-md'>
                                                             <a href='form_ticket.php' class='hover:bg-yellow-500 hover:underline'>เพิ่มรายชื่อ</a>

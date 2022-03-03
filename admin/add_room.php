@@ -16,14 +16,14 @@
 
     require '../connect.php';
 
-    $item = $_POST['item'];
+    $room = $_POST['room'];
 
     // check duplicate item
-    $checkdup = "SELECT * FROM `items` WHERE item_name = '$item'";
+    $checkdup = "SELECT * FROM `location` WHERE room_name = '$room'";
     $resultdup = mysqli_query($dbcon, $checkdup);
     if($resultdup->num_rows > 0) {
         echo ("<script>
-        swal('ไม่สำเร็จ','สิ่งของ/คุรุภัณฑ์ นี้มีอยู่แล้ว', 'error')
+        swal('ไม่สำเร็จ','มีสถานที่ปฎิบัติงานนี้แล้ว', 'error')
         .then((value) => {
         window.history.back()';
         });
@@ -31,12 +31,12 @@
         exit;
     }
 
-    $sql = "INSERT INTO items (item_name) VALUES ('$item')";
+    $sql = "INSERT INTO location (room_name) VALUES ('$room')";
     $result = mysqli_query($dbcon, $sql);
     if ($result) {
         echo ("<script>console.log('$result')</script>");
         echo ("<script>
-                swal('สำเร็จ','ระบบได้เพิ่มสิ่งของ/คุรุภัณฑ์ เรียบร้อยแล้ว', 'success')
+                swal('สำเร็จ','ระบบได้เพิ่มสถานที่ปฎิบัติงานเรียบร้อยได้', 'success')
                 .then((value) => {
                 window.history.back();
                 });

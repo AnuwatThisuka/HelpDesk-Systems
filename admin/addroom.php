@@ -53,20 +53,20 @@ if (!isset($_SESSION['id'])) {
                             class=" py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
                             <i class="fa-solid fa-house-chimney-user px-2 text-lg"></i>หน้าหลัก</a>
                         <a href="./alluser.php"
-                            class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
+                            class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
                             <i class="fa-solid fa-circle-info px-2 text-lg"></i>รายชื่อผู้ใช้งาน</a>
                         <a href="./allmainternance.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
                             <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รายชื่อพนักงานซ่อม</a>
                         <a href="allitems.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-circle-check px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
+                            <i class="fa-solid fa-store px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
                         <a href="allroom.php"
+                            class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
+                            <i class="fa-solid fa-map-location-dot px-2 text-lg"></i>สถานที่ปฎิบัติงาน</a>
+                        <a href="detailrate.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>สถานที่ปฎิบัติงาน</a>
-                        <a href="alldep.php"
-                            class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>แผนก
+                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>ประเมินการซ่อมของพนักงาน
                         </a>
                         <a href="../logout.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"><i
@@ -87,10 +87,11 @@ if (!isset($_SESSION['id'])) {
 
                             <div>
                                 <h1 class="text-2xl text-gray-800 dark:text-white"><i
-                                        class="fa-solid fa-circle-info px-2"></i>หน้าแสดงรายชื่อผู้ใช้งาน
+                                        class="fa-solid fa-location-dot px-2"></i>หน้าเพิ่มชื่อสถานที่ปฎิบัติงาน
+
                                 </h1>
                                 <p class="text-sm text-gray-800 dark:text-white">
-                                    หน้าแสดงรายชื่อผู้ใช้งานในระบบทั้งหมด
+                                    หน้าเพิ่มชื่อสถานที่ปฎิบัติงาน
                                 </p>
                             </div>
                         </div>
@@ -165,89 +166,35 @@ if (!isset($_SESSION['id'])) {
                                 <?php echo " " . $_SESSION['department'] . " " ?>
                             </h3>
                         </div>
-                        <div class=" bg-gray-200 container mx-auto px-4 py-4 ">
-                            <div class="bg-white w-full flex justify-between">
-                                <h1 class="px-4 py-6 text-gray-700 text-base font-bold"><i
-                                        class="fa-solid fa-clipboard-list px-2 text-lg"></i>รายชื่อผู้ใช้งานทั่วไปทั้งหมด
+                        <div class=" bg-gray-200 container mx-auto px-4 py-4 rounded-3xl rounded-t-none">
+                            <div class="bg-blue-500 w-full flex justify-between rounded-3xl rounded-b-none">
+                                <h1 class="px-4 py-6 text-white text-base font-bold"><i
+                                        class="fa-solid fa-circle-plus px-2 text-lg"></i>เพิ่มชื่อสถานที่ปฎิบัติงาน
                                 </h1>
-                                <div class="flex justify-center items-center">
-                                    <div class="flex items-center">
-                                        <a class="bg-yellow-500 hover:bg-yellow-600 text-sm py-1 px-3 rounded-lg text-white mr-4 cursor-pointer "
-                                            type='button' href="../form_register.php">
-                                            <i class="fa-solid fa-user-plus"></i>
-                                            เพิ่มรายชื่อ
-                                        </a>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <a class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg text-white mr-4 cursor-pointer "
-                                            type='button' href="./exportUser.php">
-                                            <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
-                                            บันทึก
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="bg-white">
+                            <div class="bg-white rounded-3xl rounded-t-none">
                                 <div class=" container mx-auto">
-                                    <div class="text-gray-700 text-base flex flex-col">
-                                        <?php
-                                               $sql = "SELECT * FROM users WHERE role = 'member'";
-                                               $result = $dbcon->query($sql);
-                                                if ($result->num_rows > 0) {
-                                                echo "<table class='mb-0 rounded-3xl w-full'>";
-                                                echo "<thead>";
-                                                echo "<tr align='center' class=' bg-purple-600 text-white h-12 py-4 text-base'>";
-                                                echo "<th class=''>รหัสพนักงาน</th>";
-                                                echo "<th>ชื่อ</th>";
-                                                echo "<th>นามสกุล</th>";
-                                                echo "<th>แผนก</th>";
-                                                echo "<th>เพิ่มเติม</th>";
-                                                echo "</tr>";
-                                                echo "</thead>";
-                                                echo "<tbody>";
-                                                while ($row = $result->fetch_assoc()) {
-                                                    echo "<tr align='center' class='bg-white text-sm shadow-md border-b-2 rounded-2xl h-12 hover:bg-gray-200'>";
-                                                    echo "<td>" . $row["user_id"] . "</td>";
-                                                    echo "<td>" . $row["name"] . "</td>";
-                                                    echo "<td>" . $row["lastname"] . "</td>";
-                                                    echo "<td>" . $row["dep"] . "</td>";
-                                                    echo "  <td>
-                                                                <div class='py-3 flex justify-center'>
-                                                                    <div tabindex='-1' role='menu' aria-hidden='true' class='flex justify-center items-center'>
-                                                                        <form action='./detailuser.php' method='post'>
-                                                                            <input type='hidden' name='user_id' value='" . $row['user_id'] . "'>
-                                                                            <button type='submit' tabindex='0' class='bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-md px-2 py-2'>ดูรายละเอียด</button>
-                                                                        </form>
-                                                                        <div class='pl-3 flex items-center'  >
-                                                                            <form action='./delete.php' method='post' class='w-8 h-auto '>
-                                                                                <input type='hidden' name='user_id' value='" . $row['user_id'] . "'>
-                                                                                <a href='#' onclick='this.parentNode.submit(); return false;'>
-                                                                                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='red' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-                                                                                <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
-                                                                            </svg></a>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                           </td>";
-                                                    echo "</tr>";
-                                                }
-                                                echo "</table>";
-                                                // Free result set
-                                                mysqli_free_result($result);
-                                            } else {
-                                                echo "<div class='flex flex-col bg-blue-500 py-1'>
-                                                        <div class='px-4 flex flex-col text-sm '>
-                                                            <p class='uppercase'>ไม่มีรายชื่อผู้ใช้งานในระบบ</p>
-
-                                                        </div>
-                                                        <div class='px-4 text-sm bg-yellow-500 w-24 rounded-md'>
-                                                            <a href='form_ticket.php' class='hover:bg-yellow-500 hover:underline'>เพิ่มรายชื่อ</a>
-                                                        </div>
-                                                    </div>";
-                                                    }
-                                            ?>
-                                    </div>
+                                    <form name="register" id="register" action="./add_room.php" method="POST">
+                                        <div class="mx-4 mb-4 flex">
+                                            <div class="w-full text-gray-700 mt-4">
+                                                <label class="block" for="id">ชื่อสถานที่ปฎิบัติงาน<label>
+                                                        <input type="text" placeholder="" name="room" required autofocus
+                                                            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                            </div>
+                                        </div>
+                                        <div class="pt-2 pb-4 flex items-center px-5">
+                                            <button
+                                                class="bg-green-500 hover:bg-green-700 text-white py-2 px-8 rounded-full mr-10 flex justify-center items-center">
+                                                <i class="fa-solid fa-circle-plus pr-2 "></i>เพิ่มชื่อสถานที่ปฎิบัติงาน
+                                            </button>
+                                            <button
+                                                class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full"
+                                                onclick="
+                                            history.back()">
+                                                ย้อนกลับ
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../static/dist/tailwind.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-            '(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-    </script>
-</head>
-
-<body class="font-display">
-    <?php
+<?php
 
 session_start();
 
@@ -93,7 +71,7 @@ if ($guide_point == 'verygood') {
     $guide_point_1 = 1;
 }
 
-$sql = "UPDATE users 
+$sql = "UPDATE users
 SET speed_3 = speed_3 + $speed_point_3,
  speed_2 = speed_2 + $speed_point_2,
  speed_1 = speed_1 + $speed_point_1,
@@ -117,7 +95,7 @@ $result = mysqli_query($dbcon, $sql);
 if ($result) {
     echo "<script>
                 alert('ประเมินสำเร็จ \\nคุณได้ประเมินการแจ้งซ่อมที่ " . $job_id ."');
-                window.location.href='detailrate.php';
+                window.history.back();
             </script>";
 } else {
     echo "เกิดข้อผิดพลาด " . mysqli_error($dbcon);
@@ -128,7 +106,3 @@ $result2 = mysqli_query($dbcon, $sql2);
 
 mysqli_close($dbcon);
 ?>
-
-</body>
-
-</html>

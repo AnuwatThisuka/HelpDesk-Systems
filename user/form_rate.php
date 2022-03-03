@@ -1,12 +1,8 @@
 <?php
-
 require '../connect.php';
-
 session_start();
-
-// if login yet
 if (!isset($_SESSION['id'])) {
-    header("Location: form_login.php");
+  header("Location: form_login.php");
 }
 ?>
 <!doctype html>
@@ -19,15 +15,6 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../static/dist/tailwind.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-            '(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-    </script>
 </head>
 
 <body class="mx-0 my-0 font-display dark:bg-gray-800">
@@ -46,7 +33,6 @@ if (!isset($_SESSION['id'])) {
                                     class="fa-solid fa-screwdriver-wrench p-2"></i>ระบบแจ้งซ่อม</span>
                         </div>
                     </div>
-
                     <nav class="flex flex-col mt-10 px-1">
                         <a href="./main.php"
                             class="py-2 text-sm px-6 text-gray-100 hover:bg-gray-200 dark:text-gray-100 hover:text-gray-700 dark:bg-gray-800 rounded">
@@ -72,7 +58,6 @@ if (!isset($_SESSION['id'])) {
                                 class="fa-solid fa-arrow-right-from-bracket px-2 text-lg"></i>ออกจากระบบ</a>
                     </nav>
                 </div>
-
                 <div class="flex-1 flex flex-col overflow-hidden">
                     <header class="flex justify-between items-center p-6">
                         <div class="flex items-center space-x-4 lg:space-x-0">
@@ -83,7 +68,6 @@ if (!isset($_SESSION['id'])) {
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </button>
-
                             <div>
                                 <h1 class="text-2xl text-gray-800 dark:text-white"><i
                                         class="fa-solid fa-wrench px-2"></i>หน้าประเมินพนักงานซ่อม
@@ -94,7 +78,6 @@ if (!isset($_SESSION['id'])) {
                                 </p>
                             </div>
                         </div>
-
                         <div class="flex items-center space-x-4">
                             <button @click="darkMode = !darkMode"
                                 class="flex text-gray-600 dark:text-gray-300 focus:outline-none"
@@ -116,7 +99,6 @@ if (!isset($_SESSION['id'])) {
                                         stroke-linejoin="round" />
                                 </svg>
                             </button>
-
                             <button class="flex text-gray-600 dark:text-gray-300 focus:outline-none">
                                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -125,7 +107,6 @@ if (!isset($_SESSION['id'])) {
                                         stroke-linejoin="round" />
                                 </svg>
                             </button>
-
                             <div x-data="{ dropdownOpen: false }" class="relative">
                                 <button @click="dropdownOpen = ! dropdownOpen"
                                     class="flex items-center space-x-2 relative focus:outline-none">
@@ -136,7 +117,6 @@ if (!isset($_SESSION['id'])) {
                                         src="https://images.unsplash.com/photo-1553267751-1c148a7280a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                                         alt="Your avatar">
                                 </button>
-
                                 <div class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
                                     x-show="dropdownOpen"
                                     x-transition:enter="transition ease-out duration-100 transform"
@@ -172,189 +152,159 @@ if (!isset($_SESSION['id'])) {
                             </div>
                             <div class="bg-white w-full">
                                 <?php
-                                    $jobid = $_POST['id'];
-                                    $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
-                                    $result = $dbcon->query($sql);
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                            $id = $row["id"];
-                                            $room = $row["room"];
-                                            $item = $row["item"];
-                                            $serial_num = $row["serial_num"];
-                                            $detail = $row["detail"];
-                                            $submitted_name = $row["submitted_name"];
-                                            $user_id = $row["user_id"];
-                                            $repairman = $row["repairman"];
-                                            $job_status = $row["job_status"];
-                                            $created_at = $row["created_at"];
-                                            $pending_at = $row["pending_at"];
-                                            $success_at = $row["success_at"];
-                                        }
+                                  $jobid = $_POST['id'];
+                                  $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
+                                  $result = $dbcon->query($sql);
+                                  if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                      $id = $row["id"];
+                                      $room = $row["room"];
+                                      $item = $row["item"];
+                                      $serial_num = $row["serial_num"];
+                                      $detail = $row["detail"];
+                                      $submitted_name = $row["submitted_name"];
+                                      $user_id = $row["user_id"];
+                                      $repairman = $row["repairman"];
+                                      $job_status = $row["job_status"];
+                                      $created_at = $row["created_at"];
+                                      $pending_at = $row["pending_at"];
+                                      $success_at = $row["success_at"];
                                     }
-                                    ?>
-                                <div class="px-10 pt-4 pb-2 text-gray-700 text-sm font-bold">ประเมินการแจ้งซ่อมของ :
+                                  }
+                                ?>
+                                <div class="px-4 pt-4 pb-2 text-gray-700 text-sm font-bold">ประเมินการแจ้งซ่อมของ :
                                     <?php echo "$id" ?>
                                 </div>
                                 <form action="./rate.php" method="POST">
-                                    <input hidden name='job_id' value='<?php echo $id ?>' />
-                                    <input hidden name='repairman_id' value='<?php echo $repairman_id ?>' />
-                                    <div class=" px-10 py-1">
-                                        <div class="flex justify-between">
-                                            <div class="w-1/4s">
-                                                <div class="flex flex-col"><label for="exampleEmail11"
-                                                        class="text-gray-700 text-sm font-bold">ชื่อผู้แจ้งซ่อม</label><input
-                                                        name="text" id="exampleEmail11" placeholder="-" type="text"
-                                                        class="text-gray-700  text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                                        value="<?php echo "$submitted_name" ?>" disabled></div>
+                                    <input hidden name="job_id" value="<?php echo $id ?>" />
+                                    <input hidden name="repairman_id" value="<?php echo $repairman_id ?>" />
+                                    <div class="flex flex-row justify-between px-4">
+                                        <div class="w-1/4">
+                                            <div class="flex flex-col"><label for="exampleEmail11"
+                                                    class="text-gray-700 text-sm font-bold">ชื่อผู้แจ้งซ่อม</label><input
+                                                    name="text" id="exampleEmail11" placeholder="-" type="text"
+                                                    class="text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                    value="<?php echo "$submitted_name" ?>" disabled></div>
+                                        </div>
+                                        <div class="w-1/4">
+                                            <div class="flex flex-col"><label for="examplePassword11"
+                                                    class="text-gray-700 text-sm font-bold">ชื่อพนักงานที่รับงานซ่อม</label><input
+                                                    name="text" id="examplePassword11" placeholder="-" type="text"
+                                                    class="text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                    value="<?php echo "$repairman" ?>" disabled></div>
+                                        </div>
+                                        <div class="w-1/4">
+                                            <div class="flex flex-col"><label for="exampleEmail11"
+                                                    class="text-gray-700 text-sm font-bold">สถานะการแจ้งซ่อม</label><input
+                                                    name="text" id="exampleEmail11" placeholder="-" type="text"
+                                                    class="text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                    value="<?php echo "$job_status" ?>" disabled></div>
+                                        </div>
+                                    </div>
+                                    <h5 class="text-sm font-bold text-gray-700 bt-4 mt-6 ml-4">1.ความเร็วในการทำงาน</h5>
+                                    <div class="relative mx-6">
+                                        <div class="pb-4">
+                                            <div class=""><input value="verygood" type="radio" id="speed_3" name="speed"
+                                                    class=""><label class="text-sm text-gray-700" for="speed_3">
+                                                    ดีมาก </label>
                                             </div>
-                                            <div class="w-1/4">
-                                                <div class="flex flex-col"><label for="examplePassword11"
-                                                        class="text-gray-700 text-sm font-bold">ชื่อพนักงานที่รับงานซ่อม</label><input
-                                                        name="text" id="examplePassword11" placeholder="-" type="text"
-                                                        class=" text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                                        value="<?php echo "$repairman" ?>" disabled>
-                                                </div>
+                                            <div class=""><input value="good" type="radio" id="speed_2" name="speed"
+                                                    class=""><label class="text-sm text-gray-700" for="speed_2">
+                                                    ดี </label>
                                             </div>
-                                            <div class="w-1/4">
-                                                <div class="flex flex-col"><label for="exampleEmail11"
-                                                        class="text-gray-700 text-sm font-bold">สถานะการแจ้งซ่อม</label><input
-                                                        name="text" id="exampleEmail11" placeholder="-" type="text"
-                                                        class="text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                                        value="<?php echo "$job_status" ?>" disabled>
-                                                </div>
+                                            <div class=""><input value="normal" type="radio" id="speed_1" name="speed"
+                                                    class=""><label class="text-sm text-gray-700" for="speed_1">
+                                                    พอใช้ </label>
                                             </div>
                                         </div>
-                                        <h5 class="text-sm text-gray-700 pt-4 font-bold">1. ความเร็วในการทำงาน</h5>
-                                        <div class="relative">
-                                            <div class="pb-4">
-                                                <div class=""><input value='verygood' type="radio" id="speed_3"
-                                                        name="speed" class=""><label class="text-sm text-gray-700"
-                                                        for="speed_3">
-                                                        ดีมาก </label>
-                                                </div>
-                                                <div class=""><input value='good' type="radio" id="speed_2" name="speed"
-                                                        class=""><label class="text-sm text-gray-700" for="speed_2">
-                                                        ดี </label>
-                                                </div>
-                                                <div class=""><input value='normal' type="radio" id="speed_1"
-                                                        name="speed" class=""><label class="text-sm text-gray-700"
-                                                        for="speed_1">
-                                                        พอใช้ </label>
-                                                </div>
+                                    </div>
+                                    <h5 class="text-sm font-bold text-gray-700 bt-4 mt-6 ml-4">
+                                        2.ความเรียบร้อยของการทำงาน</h5>
+                                    <div class="relative mx-6">
+                                        <div class="pb-4">
+                                            <div class=""><input value="verygood" type="radio" id="perfect_3"
+                                                    name="perfect" class=""><label class="text-sm text-gray-700"
+                                                    for="perfect_3">
+                                                    ดีมาก </label>
+                                            </div>
+                                            <div class=""><input value="good" type="radio" id="perfect_2" name="perfect"
+                                                    class=""><label class="text-sm text-gray-700" for="perfect_2">
+                                                    ดี </label>
+                                            </div>
+                                            <div class=""><input value="normal" type="radio" id="perfect_1"
+                                                    name="perfect" class=""><label class="text-sm text-gray-700"
+                                                    for="perfect_1">
+                                                    พอใช้ </label>
                                             </div>
                                         </div>
-                                        <h5 class="text-sm text-gray-700 font-bold">2. ความเรียบร้อยของการทำงาน</h5>
-                                        <div class="relative">
-                                            <div class="pb-4">
-                                                <div class=""><input value='verygood' type="radio" id="perfect_3"
-                                                        name="perfect" class=""><label
-                                                        class="text-sm text-gray-700 for=" perfect_3">
-                                                        ดีมาก </label>
-                                                </div>
-                                                <div class=""><input value='good' type="radio" id="perfect_2"
-                                                        name="perfect" class=""><label class="text-sm text-gray-700"
-                                                        for="perfect_2">
-                                                        ดี </label>
-                                                </div>
-                                                <div class=""><input value='normal' type="radio" id="perfect_1"
-                                                        name="perfect" class=""><label class="text-sm text-gray-700"
-                                                        for="perfect_1">
-                                                        พอใช้ </label>
-                                                </div>
+                                    </div>
+                                    <h5 class="text-sm font-bold text-gray-700 bt-4 mt-6 ml-4">3.การปฏิสัมพันธ์กับผู้ใช้
+                                    </h5>
+                                    <div class="relative mx-6">
+                                        <div class="pb-6">
+                                            <div class=""><input value="verygood" type="radio" id="talk_3" name="talk"
+                                                    class=""><label class="text-sm text-gray-700" for="talk_3">
+                                                    ดีมาก </label>
+                                            </div>
+                                            <div class=""><input value="good" type="radio" id="talk_2" name="talk"
+                                                    class=""><label class="text-sm text-gray-700" for="talk_2">
+
+
+                                                    ดี </label>
+                                            </div>
+                                            <div class=""><input value="normal" type="radio" id="talk_1" name="talk"
+                                                    class=""><label class="text-sm text-gray-700" for="talk_1">
+                                                    พอใช้ </label>
                                             </div>
                                         </div>
-                                        <h5 class="text-sm text-gray-700 font-bold">3. การปฏิสัมพันธ์กับผู้ใช้</h5>
-                                        <div class="relative">
-                                            <div class="pb-4">
-                                                <div class=""><input value='verygood' type="radio" id="talk_3"
-                                                        name="talk" class=""><label class="text-sm text-gray-700"
-                                                        for="talk_3">
-                                                        ดีมาก </label>
-                                                </div>
-                                                <div class=""><input value='good' type="radio" id="talk_2" name="talk"
-                                                        class=""><label class="text-sm text-gray-700" for="talk_2">
-                                                        ดี </label>
-                                                </div>
-                                                <div class=""><input value='normal' type="radio" id="talk_1" name="talk"
-                                                        class=""><label class="text-sm text-gray-700" for="talk_1">
-                                                        พอใช้ </label>
-                                                </div>
+                                    </div>
+                                    <h5 class="text-sm font-bold text-gray-700 bt-4 mt-6 ml-4">4.การให้คำแนะนำ,
+                                        แจ้งอาการของเครื่อง และอธิบายถึงการแก้ปัญหา
+                                    </h5>
+                                    <div class="relative mx-6">
+                                        <div class="pb-6">
+                                            <div class=""><input value="verygood" type="radio" id="guide_3" name="guide"
+                                                    class=""><label class="text-sm text-gray-700" for="guide_3">
+                                                    ดีมาก </label>
+                                            </div>
+                                            <div class=""><input value="good" type="radio" id="guide_2" name="guide"
+                                                    class=""><label class="text-sm text-gray-700" for="guide_2">
+                                                    ดี </label>
+                                            </div>
+                                            <div class=""><input value="normal" type="radio" id="guide_1" name="guide"
+                                                    class=""><label class="text-sm text-gray-700" for="guide_1">
+                                                    พอใช้ </label>
                                             </div>
                                         </div>
-                                        <h5 class="text-sm text-gray-700 font-bold">4. การให้คำแนะนำ,
-                                            แจ้งอาการของเครื่อง
-                                            และอธิบายถึงการแก้ปัญหา
-                                        </h5>
-                                        <div class="relative">
-                                            <div class="pb-4">
-                                                <div class=""><input value='verygood' type="radio" id="guide_3"
-                                                        name="guide" class=""><label class="text-sm text-gray-700"
-                                                        for="guide_3">
-                                                        ดีมาก </label>
-                                                </div>
-                                                <div class=""><input value='good' type="radio" id="guide_2" name="guide"
-                                                        class=""><label class="text-sm text-gray-700" for="guide_2">
-                                                        ดี </label>
-                                                </div>
-                                                <div class=""><input value='normal' type="radio" id="guide_1"
-                                                        name="guide" class=""><label class="text-sm text-gray-700"
-                                                        for="guide_1">
-                                                        พอใช้ </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="py-4">
+                                    </div>
+                                    <hr />
+                                    <div class="p-4">
+                                        <div class="" type="submit">
                                             <input type="submit" value="ยืนยัน"
                                                 class="bg-green-500 text-base hover:bg-green-700 text-white w-1/5 py-2 px-4 rounded-full">
-                                            <!-- test
-                                            <button type="submit" value="ยืนยัน"
-                                                class="bg-green-500 text-base hover:bg-green-700 text-white w-1/5 py-2 px-4 rounded-full">
-                                                ส่งผลการประเมิณ
-                                            </button> -->
                                         </div>
-                                        <?php
-                                            $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
-                                            $result = $dbcon->query($sql);
-                                            if ($result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) {
-                                                    $id = $row["id"];
-                                                    $room = $row["room"];
-                                                    $item = $row["item"];
-                                                    $serial_num = $row["serial_num"];
-                                                    $detail = $row["detail"];
-                                                    $submitted_name = $row["submitted_name"];
-                                                    $user_id = $row["user_id"];
-                                                    $repairman = $row["repairman"];
-                                                    $repairman_id = $row['repairman_id'];
-                                                    $job_status = $row["job_status"];
-                                                    $created_at = $row["created_at"];
-                                                    $pending_at = $row["pending_at"];
-                                                    $success_at = $row["success_at"];
-                                                }
-                                            }
-                                        ?>
                                     </div>
                                     <?php
-                                            $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
-                                            $result = $dbcon->query($sql);
-                                            if ($result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) {
-                                                    $id = $row["id"];
-                                                    $room = $row["room"];
-                                                    $item = $row["item"];
-                                                    $serial_num = $row["serial_num"];
-                                                    $detail = $row["detail"];
-                                                    $submitted_name = $row["submitted_name"];
-                                                    $user_id = $row["user_id"];
-                                                    $repairman = $row["repairman"];
-                                                    $repairman_id = $row['repairman_id'];
-                                                    $job_status = $row["job_status"];
-                                                    $created_at = $row["created_at"];
-                                                    $pending_at = $row["pending_at"];
-                                                    $success_at = $row["success_at"];
-                                                }
-                                            }
-                                        ?>
+                                      $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
+                                      $result = $dbcon->query($sql);
+                                      if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                          $id = $row["id"];
+                                          $room = $row["room"];
+                                          $item = $row["item"];
+                                          $serial_num = $row["serial_num"];
+                                          $detail = $row["detail"];
+                                          $submitted_name = $row["submitted_name"];
+                                          $user_id = $row["user_id"];
+                                          $repairman = $row["repairman"];
+                                          $repairman_id = $row['repairman_id'];
+                                          $job_status = $row["job_status"];
+                                          $created_at = $row["created_at"];
+                                          $pending_at = $row["pending_at"];
+                                          $success_at = $row["success_at"];
+                                        }
+                                      }
+                                    ?>
                                 </form>
                             </div>
                         </div>

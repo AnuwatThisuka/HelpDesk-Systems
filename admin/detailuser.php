@@ -61,12 +61,12 @@ if (!isset($_SESSION['id'])) {
                         <a href="success_tick.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
                             <i class="fa-solid fa-circle-check px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
-                        <a href="all_tick.php"
+                        <a href="allroom.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหา</a>
-                        <a href="detailrate.php"
+                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>สถานที่ปฎิบัติงาน</a>
+                        <a href="alldep.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>ประเมินการซ่อมของพนักงาน
+                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>แผนก
                         </a>
                         <a href="../logout.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"><i
@@ -232,14 +232,14 @@ if (!isset($_SESSION['id'])) {
                                     </div>
                                 </div>
                                 <div class="flex pb-4">
-                                    <div class="flex flex-col">
+                                    <div class="flex flex-col mr-16">
                                         <label for="examplePassword11"
                                             class="text-gray-700 text-sm  font-bold">แผนก</label>
                                         <input name="text" id="examplePassword11" placeholder="-" type="text"
                                             class="text-gray-700 text-sm bg-gray-200 w-48 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
                                             value="<?php echo "$dep" ?>" disabled>
                                     </div>
-                                    <div class="flex flex-col ml-12">
+                                    <div class="flex flex-col">
                                         <label for="examplePassword11"
                                             class="text-gray-700 text-sm  font-bold">เวลาที่สมัครเข้าใช้งาน</label>
                                         <input name="text" id="examplePassword11" placeholder="-" type="text"

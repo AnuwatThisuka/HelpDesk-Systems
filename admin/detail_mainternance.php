@@ -59,16 +59,16 @@ if (!isset($_SESSION['id'])) {
                             <i class="fa-solid fa-circle-info px-2 text-lg"></i>รายชื่อผู้ใช้งาน</a>
                         <a href="./allmainternance.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-700 bg-gray-200 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100  hover:bg-gray-200 dark:hover:bg-gray-800 rounded flex  items-center">
-                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>พนักงานซ่อม</a>
-                        <a href="success_tick.php"
+                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รายชื่อพนักงานซ่อม</a>
+                        <a href="./allitems.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
                             <i class="fa-solid fa-circle-check px-2 text-lg"></i>สิ่งของ/คุรุภัณฑ์</a>
-                        <a href="all_tick.php"
+                        <a href="./allroom.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหา</a>
-                        <a href="detailrate.php"
+                            <i class="fa-solid fa-clipboard-list px-2 text-lg"></i>สถานที่ปฎิบัติงาน</a>
+                        <a href="./alldep.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded">
-                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>ประเมินการซ่อมของพนักงาน
+                            <i class="fa-solid fa-rectangle-list px-2 text-lg"></i>แผนก
                         </a>
                         <a href="../logout.php"
                             class="mt-3 py-2 px-6 text-sm text-gray-100 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 rounded"><i
@@ -297,15 +297,15 @@ if (!isset($_SESSION['id'])) {
                                             $speed3 = $row['speed_3'];
                                             $speed2 = $row['speed_2'];
                                             $speed1 = $row['speed_1'];
-                
+
                                             $perfect3 = $row['perfect_3'];
                                             $perfect2 = $row['perfect_2'];
                                             $perfect1 = $row['perfect_1'];
-                
+
                                             $talk3 = $row['talk_3'];
                                             $talk2 = $row['talk_2'];
                                             $talk1 = $row['talk_1'];
-                
+
                                             $guide3 = $row['guide_3'];
                                             $guide2 = $row['guide_2'];
                                             $guide1 = $row['guide_1'];
@@ -387,15 +387,15 @@ if (!isset($_SESSION['id'])) {
                                             $speed3 = $row['speed_3'];
                                             $speed2 = $row['speed_2'];
                                             $speed1 = $row['speed_1'];
-                
+
                                             $perfect3 = $row['perfect_3'];
                                             $perfect2 = $row['perfect_2'];
                                             $perfect1 = $row['perfect_1'];
-                
+
                                             $talk3 = $row['talk_3'];
                                             $talk2 = $row['talk_2'];
                                             $talk1 = $row['talk_1'];
-                
+
                                             $guide3 = $row['guide_3'];
                                             $guide2 = $row['guide_2'];
                                             $guide1 = $row['guide_1'];
@@ -479,15 +479,15 @@ if (!isset($_SESSION['id'])) {
                                             $speed3 = $row['speed_3'];
                                             $speed2 = $row['speed_2'];
                                             $speed1 = $row['speed_1'];
-                
+
                                             $perfect3 = $row['perfect_3'];
                                             $perfect2 = $row['perfect_2'];
                                             $perfect1 = $row['perfect_1'];
-                
+
                                             $talk3 = $row['talk_3'];
                                             $talk2 = $row['talk_2'];
                                             $talk1 = $row['talk_1'];
-                
+
                                             $guide3 = $row['guide_3'];
                                             $guide2 = $row['guide_2'];
                                             $guide1 = $row['guide_1'];
@@ -570,15 +570,15 @@ if (!isset($_SESSION['id'])) {
                                             $speed3 = $row['speed_3'];
                                             $speed2 = $row['speed_2'];
                                             $speed1 = $row['speed_1'];
-                
+
                                             $perfect3 = $row['perfect_3'];
                                             $perfect2 = $row['perfect_2'];
                                             $perfect1 = $row['perfect_1'];
-                
+
                                             $talk3 = $row['talk_3'];
                                             $talk2 = $row['talk_2'];
                                             $talk1 = $row['talk_1'];
-                
+
                                             $guide3 = $row['guide_3'];
                                             $guide2 = $row['guide_2'];
                                             $guide1 = $row['guide_1'];
