@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -246,7 +247,7 @@ if (!isset($_SESSION['id'])) {
                                                 echo "</tr>";
                                                 while ($row = $result->fetch_assoc()) {
                                                     echo "<tr align='center' class='bg-white text-sm shadow-md rounded-2xl h-8 border-b-2 hover:bg-gray-200'>";
-                                                    echo "<td>" . $row["id"] . "</td>"; 
+                                                    echo "<td>" . $row["id"] . "</td>";
                                                     echo "<td>" . $row["room"] . "</td>";
                                                     echo "<td>" . $row["item"] . "</td>";
                                                     echo "<td>" . $row["serial_num"] . "</td>";
@@ -265,7 +266,7 @@ if (!isset($_SESSION['id'])) {
                                                                                     <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2'
                                                                                         d='M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z' />
                                                                                 </svg>
-                                                                            </div> 
+                                                                            </div>
                                                                         </button>
                                                                     </form>
                                                                     <form action='./form_edit.php' method='post'>
@@ -283,7 +284,7 @@ if (!isset($_SESSION['id'])) {
                                                                                     </svg>
                                                                             </div>
                                                                         </button>
-                                                                    </form>                                                      
+                                                                    </form>
                                                                     <form action='./delete.php' method='post'>
                                                                         <input type='hidden' name='id' value='" . $row['id'] . "'>
                                                                         <button type='submit' tabindex='0' class='w-4'>
@@ -300,7 +301,7 @@ if (!isset($_SESSION['id'])) {
                                                             </td>";
                                                     echo "</tr>";
                                                 }
-                                                
+
                                     } else {
                                         echo "
                                                 <div>

@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">

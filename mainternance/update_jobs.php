@@ -3,6 +3,7 @@
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,14 +47,14 @@ if ($result) {
     error_reporting(E_ALL);
     date_default_timezone_set("Asia/Bangkok");
     $date = date("Y-m-d H:i:s");
-    
+
     $sToken = "";
-    
+
     $sMessage = "แจ้งเตือนการแจ้งซ่อม
 $repairman ได้รับงานการแจ้งซ่อม
 รหัสการแจ้งซ่อม: $jobid
 สถานะของการแจ้งซ่อม: กำลังดำเนินการ
-เวลา: $date"; 
+เวลา: $date";
 
     $chOne = curl_init();
     curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
@@ -66,7 +67,7 @@ $repairman ได้รับงานการแจ้งซ่อม
     curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($chOne);
 
-    //Result error 
+    //Result error
     if (curl_error($chOne)) {
         echo 'error:' . curl_error($chOne);
     }
@@ -79,7 +80,7 @@ $repairman ได้รับงานการแจ้งซ่อม
             window.location.href='mainternance.php';
             });
           </script>
-          
+
           ";
 } else {
     echo "เกิดข้อผิดพลาด " . mysqli_error($dbcon);

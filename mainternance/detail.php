@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
 
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <title>HelpDesk Systems</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -163,7 +164,7 @@ if (!isset($_SESSION['id'])) {
                                 </h1>
                             </div>
                             <div class="bg-white w-full">
-                                <?php 
+                                <?php
                                     $jobid = $_POST['id'];
                                     $sql = "SELECT * FROM `ticket` WHERE id = $jobid";
                                     $result = $dbcon->query($sql);

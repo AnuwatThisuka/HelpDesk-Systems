@@ -3,6 +3,7 @@
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,7 +51,7 @@ $sMessage = "แจ้งเตือนการแจ้งซ่อม
 $repairman ได้ส่งงานการแจ้งซ่อม
 รหัสการแจ้งซ่อม: $id
 สถานะของการแจ้งซ่อม: เสร็จสิ้น
-เวลา: $date"; 
+เวลา: $date";
 
 $chOne = curl_init();
 curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
@@ -63,7 +64,7 @@ curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec($chOne);
 
-//Result error 
+//Result error
 if (curl_error($chOne)) {
     echo 'error:' . curl_error($chOne);
 }

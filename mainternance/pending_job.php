@@ -17,6 +17,7 @@ if (!isset($_SESSION['id'])) {
     <title>HelpDesk Systems</title>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../static/dist/tailwind.css" rel="stylesheet">
@@ -190,19 +191,19 @@ if (!isset($_SESSION['id'])) {
                                                                 <div class=''>
                                                                 <div class='dropdown dropdown-left'>
                                                                     <label tabindex='0' class=' btn bg-green-600 border-green-600 hover:bg-green-700 hover:border-green-700 text-sm text-white'>ส่งงาน</label>
-                                                                    <ul tabindex='0' class=' shadow bg-white menu dropdown-content rounded-box w-32'>                                    
+                                                                    <ul tabindex='0' class=' shadow bg-white menu dropdown-content rounded-box w-32'>
                                                                         <li class='w-full'>
                                                                         <form action='./success_jobs.php' method='post'>
                                                                             <input type='hidden' name='id' value='" . $row['id'] . "'>
                                                                             <button type='submit' tabindex='0' class='w-full hover:bg'>ส่งงาน</button>
                                                                         </form>
-                                                                        </li>                                      
+                                                                        </li>
                                                                         <li class='w-full'>
                                                                         <form action='./detail.php' method='post'>
                                                                             <input type='hidden' name='id' value='" . $row['id'] . "'>
                                                                             <button type='submit' tabindex='0' class='w-full h-auto py-1'>ดูรายละเอียด</button>
                                                                         </form>
-                                                                        </li> 
+                                                                        </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>

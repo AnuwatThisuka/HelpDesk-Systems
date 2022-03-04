@@ -10,6 +10,7 @@
     <html lang="en">
 
     <head>
+        <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
         <title>HelpDesk Systems</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -271,10 +272,9 @@
                                             }
                                         }
                                     });
+                                    //Fucntion Export PNG
                                     const btnDownload = document.querySelector('#btnDownload');
                                     const myCanvas = document.querySelector('#pie-chart');
-
-
                                     btnDownload.addEventListener("click", function() {
                                         console.log('click')
                                         if (window.navigator.msSaveBlob) {
@@ -372,10 +372,9 @@
                                             }
                                         }
                                     });
+                                    //Fucntion Export PNG
                                     const btnDownload2 = document.querySelector('#btnDownload2');
                                     const myCanvas2 = document.querySelector('#pie-chart2');
-
-
                                     btnDownload2.addEventListener("click", function() {
                                         console.log('click')
                                         if (window.navigator.msSaveBlob) {

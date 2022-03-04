@@ -3,6 +3,8 @@
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

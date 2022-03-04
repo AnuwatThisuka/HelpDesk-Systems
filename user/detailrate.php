@@ -18,6 +18,7 @@ if ($_SESSION['role'] != 'member') {
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.2.2/dist/full.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -199,7 +200,7 @@ if ($_SESSION['role'] != 'member') {
                                                 echo "<tbody>";
                                                 while ($row = $result->fetch_assoc()) {
                                                     echo "<tr align='center' class='bg-white shadow-md rounded-2xl h-12 text-sm border-b-2 hover:bg-gray-200'>";
-                                                    echo "<td class='border-solid'>" . $row["id"] . "</td>"; 
+                                                    echo "<td class='border-solid'>" . $row["id"] . "</td>";
                                                     echo "<td>" . $row["room"] . "</td>";
                                                     echo "<td>" . $row["item"] . "</td>";
                                                     echo "<td class=''>" . $row["detail"] . "</td>";
@@ -208,19 +209,19 @@ if ($_SESSION['role'] != 'member') {
                                                                 <div class=''>
                                                                     <div class='dropdown dropdown-top'>
                                                                         <label tabindex='0' class=' btn bg-red-600 border-red-600 hover:bg-red-700 hover:border-red-700 text-sm text-white'>ประเมิน</label>
-                                                                        <ul tabindex='0' class=' shadow bg-white menu dropdown-content rounded-box w-32'>                                    
+                                                                        <ul tabindex='0' class=' shadow bg-white menu dropdown-content rounded-box w-32'>
                                                                             <li class=''>
                                                                             <form action='form_rate.php' method='post'>
                                                                                 <input type='hidden' name='id' value='" . $row['id'] . "'>
                                                                                 <button type='submit' tabindex='0' class='w-full hover:bg'>ประเมิน</button>
                                                                             </form>
-                                                                            </li>                                      
+                                                                            </li>
                                                                             <li class=''>
                                                                             <form action='detail.php' method='post'>
                                                                                 <input type='hidden' name='id' value='" . $row['id'] . "'>
                                                                                 <button type='submit' tabindex='0' class='w-full h-auto py-1'>ดูรายละเอียด</button>
                                                                             </form>
-                                                                            </li> 
+                                                                            </li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>

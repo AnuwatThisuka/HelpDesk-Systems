@@ -18,6 +18,7 @@ if ($_SESSION['role'] != 'member') {
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -196,7 +197,7 @@ if ($_SESSION['role'] != 'member') {
                                                 echo "<tbody>";
                                                 while ($row = $result->fetch_assoc()) {
                                                     echo "<tr align='center' class='bg-white text-sm shadow-md rounded-2xl border-b-2 hover:bg-gray-200'>";
-                                                    echo "<td>" . $row["id"] . "</td>"; 
+                                                    echo "<td>" . $row["id"] . "</td>";
                                                     echo "<td>" . $row["room"] . "</td>";
                                                     echo "<td>" . $row["item"] . "</td>";
                                                     echo "<td>" . $row["detail"] . "</td>";
@@ -222,7 +223,7 @@ if ($_SESSION['role'] != 'member') {
                                                     <p class='uppercase'>ยังไม่มีการซ่อมสถานะ PENDING</p>
                                                     <p>กรุณารอพนักงานซ่อมดำเนินการ</p>
                                                 </div>
-                                                
+
                                                 ";
                                     }
                                     ?>

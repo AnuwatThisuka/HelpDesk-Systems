@@ -15,6 +15,7 @@ if (!isset($_SESSION['id'])) {
 
 <head>
     <title>HelpDesk Systems</title>
+    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,12 +159,13 @@ if (!isset($_SESSION['id'])) {
                         <div class=" bg-gray-200 container mx-auto px-4 py-4 ">
                             <div class="bg-white w-full">
                                 <h1 class="px-4 py-6 text-gray-700 text-base font-bold"><i
-                                        class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหาทั้งหมดที่ได้รับการแก้ไขแล้ว</h1>
+                                        class="fa-solid fa-clipboard-list px-2 text-lg"></i>รวมการแจ้งปัญหาทั้งหมดที่ได้รับการแก้ไขแล้ว
+                                </h1>
                             </div>
                             <div class="bg-white">
                                 <div class=" container mx-auto">
                                     <div class="text-gray-700 text-base flex flex-col">
-                                        <?php                                         
+                                        <?php
                                             $repairman_name = $_SESSION['name'];
                                             $sql = "SELECT id, room, item, serial_num, detail, submitted_name, created_at, success_at, job_status FROM ticket WHERE job_status = 'success' ORDER BY success_at DESC";
                                             $result = $dbcon->query($sql);
@@ -228,5 +230,6 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
 </body>
+
 
 </html>
