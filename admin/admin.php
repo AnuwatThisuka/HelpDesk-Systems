@@ -145,7 +145,7 @@
                                     class=" p-4  text-gray-500 dark:text-gray-300 text-xl border-4 border-gray-300 border-dashed">
                                     <div class="flex justify-between items-center">
                                         <div
-                                            class="bg-red-500  border shadow-xl p-4 w-2/6 h-24 flex items-center justify-between">
+                                            class="bg-gray-700  border shadow-xl p-4 w-2/6 h-24 flex items-center justify-between">
                                             <div class="flex justify-between">
                                                 <h1 class="text-base text-white dark:text-gray-100 flex items-center">
                                                     <i class="fas fa-user-shield pr-4 text-5xl"></i>แอดมิน
@@ -154,18 +154,18 @@
                                             <div class="flex justify-between">
                                                 <h1 class="text-white dark:text-gray-100 text-5xl">
                                                     <?php
-                                                    $name = $_SESSION['name'];
-                                                    $sql = "SELECT COUNT(*) FROM users WHERE role ='admin'";
-                                                    $result = $dbcon->query($sql);
-                                                    $row = $result->fetch_row();
-                                                    echo $row[0];
-                                                    $user_total = $row[0];
+                                                        $name = $_SESSION['name'];
+                                                        $sql = "SELECT COUNT(*) FROM users WHERE role ='admin'";
+                                                        $result = $dbcon->query($sql);
+                                                        $row = $result->fetch_row();
+                                                        echo $row[0];
+                                                        $user_total = $row[0];
                                                     ?>
                                                 </h1>
                                             </div>
                                         </div>
                                         <div
-                                            class="bg-yellow-500  border shadow-xl p-4 w-2/6 h-24 flex items-center justify-between">
+                                            class="bg-gray-700  border shadow-xl p-4 w-2/6 h-24 flex items-center justify-between">
                                             <div class="flex justify-around">
                                                 <h1 class="text-base text-white dark:text-gray-100 flex items-center">
                                                     <i class="fa-solid fa-users pr-4 text-5xl"></i>ผู้ใช้งานทั่วไป
@@ -174,32 +174,32 @@
                                             <div class="flex justify-between">
                                                 <h1 class="text-white dark:text-gray-100 text-5xl">
                                                     <?php
-                                                    $name = $_SESSION['name'];
-                                                    $sql = "SELECT COUNT(*) FROM users WHERE role = 'member'";
-                                                    $result = $dbcon->query($sql);
-                                                    $row = $result->fetch_row();
-                                                    echo $row[0];
-                                                    $user_member = $row[0];
+                                                        $name = $_SESSION['name'];
+                                                        $sql = "SELECT COUNT(*) FROM users WHERE role = 'member'";
+                                                        $result = $dbcon->query($sql);
+                                                        $row = $result->fetch_row();
+                                                        echo $row[0];
+                                                        $user_member = $row[0];
                                                     ?>
                                                 </h1>
                                             </div>
                                         </div>
                                         <div
-                                            class="bg-green-500  border shadow-xl p-4 w-2/6 h-24 flex items-center justify-between">
+                                            class="bg-gray-700  border shadow-xl p-4 w-2/6 h-24 flex items-center justify-between">
                                             <div class="flex justify-between">
                                                 <h1 class="text-base text-white dark:text-gray-100 flex items-center">
-                                                    <i class="fa-solid fa-circle-check pr-4 text-5xl"></i>พนักงานซ่อม
+                                                    <i class="fa-solid fa-user-gear pr-4 text-5xl"></i>พนักงานซ่อม
                                                 </h1>
                                             </div>
                                             <div class="flex justify-between">
                                                 <h1 class="text-white dark:text-gray-100 text-5xl">
                                                     <?php
-                                                    $name = $_SESSION['name'];
-                                                    $sql = "SELECT COUNT(*) FROM users WHERE role = 'repairman'";
-                                                    $result = $dbcon->query($sql);
-                                                    $row = $result->fetch_row();
-                                                    echo $row[0];
-                                                    $user_repairman = $row[0];
+                                                        $name = $_SESSION['name'];
+                                                        $sql = "SELECT COUNT(*) FROM users WHERE role = 'repairman'";
+                                                        $result = $dbcon->query($sql);
+                                                        $row = $result->fetch_row();
+                                                        echo $row[0];
+                                                        $user_repairman = $row[0];
                                                     ?>
                                                 </h1>
                                             </div>
@@ -271,6 +271,23 @@
                                             }
                                         }
                                     });
+                                    const btnDownload = document.querySelector('#btnDownload');
+                                    const myCanvas = document.querySelector('#pie-chart');
+
+
+                                    btnDownload.addEventListener("click", function() {
+                                        console.log('click')
+                                        if (window.navigator.msSaveBlob) {
+                                            window.navigator.msSaveBlob(myCanvas.msSaveBlob(), "user.png");
+                                        } else {
+                                            const a = document.createElement("a");
+                                            document.body.appendChild(a);
+                                            a.href = myCanvas.toDataURL();
+                                            a.download = "jobs.png";
+                                            a.click();
+                                            document.body.removeChild(a);
+                                        }
+                                    });
                                     </script>
                                 </div>
                                 <div class=" px-6 py-6 bg-white w-5/12 h-auto text-sm text-white rounded-3xl">
@@ -288,32 +305,32 @@
                                         </div>
                                     </div>
                                     <?php
-                                    $sql = "SELECT COUNT(*) FROM ticket ";
-                                    $result = $dbcon->query($sql);
-                                    $row = $result->fetch_row();
-                                    echo $row[0];
-                                    $job_total = $row[0];
+                                        $sql = "SELECT COUNT(*) FROM ticket ";
+                                        $result = $dbcon->query($sql);
+                                        $row = $result->fetch_row();
+                                        echo $row[0];
+                                        $job_total = $row[0];
                                     ?>
                                     <?php
-                                    $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'waiting'";
-                                    $result = $dbcon->query($sql);
-                                    $row = $result->fetch_row();
-                                    echo $row[0];
-                                    $job_waiting = $row[0];
+                                        $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'waiting'";
+                                        $result = $dbcon->query($sql);
+                                        $row = $result->fetch_row();
+                                        echo $row[0];
+                                        $job_waiting = $row[0];
                                     ?>
                                     <?php
-                                    $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'pending'";
-                                    $result = $dbcon->query($sql);
-                                    $row = $result->fetch_row();
-                                    echo $row[0];
-                                    $job_pending = $row[0];
+                                        $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'pending'";
+                                        $result = $dbcon->query($sql);
+                                        $row = $result->fetch_row();
+                                        echo $row[0];
+                                        $job_pending = $row[0];
                                     ?>
                                     <?php
-                                    $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'success'";
-                                    $result = $dbcon->query($sql);
-                                    $row = $result->fetch_row();
-                                    echo $row[0];
-                                    $job_success = $row[0];
+                                        $sql = "SELECT COUNT(*) FROM ticket WHERE job_status = 'success'";
+                                        $result = $dbcon->query($sql);
+                                        $row = $result->fetch_row();
+                                        echo $row[0];
+                                        $job_success = $row[0];
                                     ?>
                                     <canvas id="pie-chart2" class="text-white"></canvas>
                                     <script>
@@ -348,104 +365,28 @@
                                             }]
                                         },
                                         options: {
-                                            title: {
-                                                display: true,
-                                                text: ''
-                                            },
-                                            tooltips: {
-                                                mode: 'index',
-                                                bodySpacing: 5,
-                                                bodyFontFamily: 'Noto Sans Thai',
-                                                bodyFontSize: 20
+                                            legend: {
+                                                labels: {
+                                                    fontColor: '#000000'
+                                                }
                                             }
                                         }
                                     });
-                                    </script>
-                                    <script src="jquery-3.4.1.min.js"></script>
-                                    <script>
-                                    const btnDownload = document.querySelector('#btnDownload');
-                                    const myCanvas = document.querySelector('#pie_chart11');
-
-
-
                                     const btnDownload2 = document.querySelector('#btnDownload2');
-                                    const myCanvas2 = document.querySelector('#pie_chart22');
+                                    const myCanvas2 = document.querySelector('#pie-chart2');
 
-
-                                    btnDownload.addEventListener("click", function() {
-                                        console.log('click')
-                                        if (window.navigator.msSaveBlob) {
-                                            window.navigator.msSaveBlob(myCanvas.msSaveBlob(), "jobs.png");
-                                        } else {
-                                            const a = document.createElement("a");
-                                            document.body.appendChild(a);
-                                            a.href = myCanvas.toDataURL();
-                                            a.download = "jobs.png";
-                                            a.click();
-                                            document.body.removeChild(a);
-                                        }
-                                    });
 
                                     btnDownload2.addEventListener("click", function() {
                                         console.log('click')
                                         if (window.navigator.msSaveBlob) {
-                                            window.navigator.msSaveBlob(myCanvas2.msSaveBlob(), "users.png");
+                                            window.navigator.msSaveBlob(myCanvas2.msSaveBlob(), "jobs.png");
                                         } else {
                                             const a = document.createElement("a");
                                             document.body.appendChild(a);
                                             a.href = myCanvas2.toDataURL();
-                                            a.download = "users.png";
+                                            a.download = "jobs.png";
                                             a.click();
                                             document.body.removeChild(a);
-                                        }
-                                    });
-                                    </script>
-                                    <div class="hidden">
-                                        <canvas class="hidden" id="pie-chart11"></canvas>
-                                        <canvas class="hidden" id="pie-chart22"></canvas>
-                                    </div>
-                                    <script>
-                                    var ctx = document.getElementById('pie-chart11').getContext('2d');
-                                    var role3 = new Chart(ctx, {
-                                        type: 'pie',
-                                        data: {
-                                            labels: ['การแจ้งซ่อมสถานะรอ [<?php echo "$job_waiting" ?>]',
-                                                'การแจ้งซ่อมสถานะกำลังดำเนินการ [<?php echo "$job_pending" ?>]',
-                                                'การแจ้งซ่อมสถานะเสร็จแล้ว [<?php echo "$job_success" ?>]'
-                                            ],
-
-
-                                            datasets: [{
-                                                label: '# of Users',
-                                                data: [<?php echo "$job_waiting" ?>,
-                                                    <?php echo "$job_pending" ?>,
-                                                    <?php echo "$job_success" ?>
-                                                ],
-                                                backgroundColor: [
-
-                                                    'rgba(75, 192, 192, 1)',
-                                                    'rgba(153, 102, 255, 1)',
-                                                    'rgba(255, 206, 86, 1)'
-                                                ],
-                                                borderColor: [
-
-                                                    'rgba(75, 192, 192, 1)',
-                                                    'rgba(153, 102, 255, 1)',
-                                                    'rgba(255, 206, 86, 1)'
-                                                ],
-                                            }]
-                                        },
-                                        options: {
-                                            title: {
-                                                display: true,
-                                                text: ''
-                                            },
-                                            tooltips: {
-                                                mode: 'index',
-                                                bodySpacing: 5,
-                                                bodyFontFamily: 'Noto Sans Thai',
-                                                bodyFontSize: 20
-                                            }
                                         }
                                     });
                                     </script>
@@ -456,7 +397,6 @@
                 </div>
             </div>
         </div>
-
         <script src="../main.js"></script>
     </body>
 

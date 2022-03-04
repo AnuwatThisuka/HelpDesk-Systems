@@ -200,8 +200,8 @@ if ($_SESSION['role'] != 'member') {
                                 <div class="px-4 py-4 text-gray-700 text-sm font-bold">รายละเอียดการแจ้งซ่อมของ :
                                     <?php echo "$id" ?>
                                 </div>
-                                <div class=" px-4 py-1">
-                                    <div class=" flex justify-between pb-4">
+                                <div class=" px-4 py-1" id="test">
+                                    <div class=" flex justify-between pb-4" id="test2">
                                         <div class="flex flex-col">
                                             <label for="exampleEmail11"
                                                 class="text-gray-700 text-sm font-bold">รหัสการแจ้งซ่อม</label>
@@ -271,14 +271,14 @@ if ($_SESSION['role'] != 'member') {
                                             <div class="flex flex-col"><label for="exampleEmail11"
                                                     class="text-gray-700 text-sm font-bold">เวลาที่สร้างงาน</label><input
                                                     name="text" id="exampleEmail11" placeholder="-" type="text"
-                                                    class="text-gray-700  text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                    class="text-gray-700 text-sm uppercase bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
                                                     value="<?php echo "$created_at" ?>" disabled></div>
                                         </div>
                                         <div class="w-1/4">
                                             <div class="flex flex-col"><label for="examplePassword11"
                                                     class="text-gray-700 text-sm font-bold">เวลาที่พนักงานรับงาน</label><input
                                                     name="text" id="examplePassword11" placeholder="-" type="text"
-                                                    class=" text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                    class=" text-gray-700 text-sm uppercase bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
                                                     value="<?php echo "$pending_at" ?>" disabled>
                                             </div>
                                         </div>
@@ -286,7 +286,7 @@ if ($_SESSION['role'] != 'member') {
                                             <div class="flex flex-col"><label for="exampleEmail11"
                                                     class="text-gray-700 text-sm font-bold">เวลาที่การแจ้งซ่อมเสร็จสิ้น</label><input
                                                     name="text" id="exampleEmail11" placeholder="-" type="text"
-                                                    class="text-gray-700 text-sm bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                    class="text-gray-700 text-sm uppercase bg-gray-200 px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600"
                                                     value="<?php echo "$success_at" ?>" disabled>
                                             </div>
                                         </div>

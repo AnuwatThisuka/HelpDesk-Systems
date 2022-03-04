@@ -167,7 +167,7 @@ if (!isset($_SESSION['id'])) {
                         </div>
                         <div class=" bg-gray-200 container mx-auto px-4 py-4 ">
                             <div class="bg-green-500 w-full flex justify-between">
-                                <h1 class="px-4 py-6 text-gray-700 text-base font-bold"><i
+                                <h1 class="px-4 py-6 text-white text-base font-bold"><i
                                         class="fa-solid fa-user-plus px-2 text-lg"></i>เพิ่มรายชื่อพนักงานซ่อม
                                 </h1>
                                 <!--

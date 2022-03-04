@@ -266,7 +266,7 @@ if (!isset($_SESSION['id'])) {
                             </div>
                             <div class="flex flex-col bg-gray-200">
                                 <div class=" flex justify-center m-4">
-                                    <h class="text-base text-white bg-blue-500 rounded-md px-4 py-1">
+                                    <h class="text-base text-white bg-blue-500 rounded-md px-4 py-1 uppercase">
                                         ผลการประเมินของพนักงานซ่อม ชื่อ:
                                         <?php echo "$name" ?>&nbsp;
                                         &nbsp;<?php echo "$lastname" ?>
@@ -281,7 +281,7 @@ if (!isset($_SESSION['id'])) {
                                             <div class="flex justify-between items-center">
                                                 <span class="text-gray-700"><i
                                                         class="fa-solid fa-chart-pie px-1"></i>ความเร็วในการทำงาน</span>
-                                                <button id="btnDownload"
+                                                <button id="btnDownloadspeed"
                                                     class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
                                                     type='button'>
                                                     <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
@@ -350,7 +350,7 @@ if (!isset($_SESSION['id'])) {
                                             options: {
                                                 title: {
                                                     display: true,
-                                                    text: ''
+                                                    text: 'ความเร็วในการทำงาน'
                                                 },
                                                 font: {
                                                     size: 16,
@@ -359,6 +359,22 @@ if (!isset($_SESSION['id'])) {
                                                 datalabel: {
                                                     color: '#000000'
                                                 }
+                                            }
+                                        });
+                                        const btnDownloadspeed = document.querySelector('#btnDownloadspeed');
+                                        const myCanvas2 = document.querySelector('#speed');
+                                        btnDownloadspeed.addEventListener("click", function() {
+                                            console.log('click')
+                                            if (window.navigator.msSaveBlob) {
+                                                window.navigator.msSaveBlob(myCanvas2.msSaveBlob(),
+                                                    "speed.png");
+                                            } else {
+                                                const a = document.createElement("a");
+                                                document.body.appendChild(a);
+                                                a.href = myCanvas2.toDataURL();
+                                                a.download = "speed.png";
+                                                a.click();
+                                                document.body.removeChild(a);
                                             }
                                         });
                                         </script>
@@ -371,7 +387,7 @@ if (!isset($_SESSION['id'])) {
                                             <div class="flex justify-between items-center">
                                                 <span class="text-gray-700"><i
                                                         class="fa-solid fa-chart-pie px-1"></i>ความเรียบร้อยในการทำงาน</span>
-                                                <button id="btnDownload"
+                                                <button id="btnDownloadper"
                                                     class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
                                                     type='button'>
                                                     <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
@@ -451,6 +467,22 @@ if (!isset($_SESSION['id'])) {
                                                 }
                                             }
                                         });
+                                        const btnDownload = document.querySelector('#btnDownloadper');
+                                        const myCanvas = document.querySelector('#speed');
+                                        btnDownload.addEventListener("click", function() {
+                                            console.log('click')
+                                            if (window.navigator.msSaveBlob) {
+                                                window.navigator.msSaveBlob(myCanvas.msSaveBlob(),
+                                                    "perfect.png");
+                                            } else {
+                                                const a = document.createElement("a");
+                                                document.body.appendChild(a);
+                                                a.href = myCanvas.toDataURL();
+                                                a.download = "speed.png";
+                                                a.click();
+                                                document.body.removeChild(a);
+                                            }
+                                        });
                                         </script>
                                     </div>
                                 </div>
@@ -463,7 +495,7 @@ if (!isset($_SESSION['id'])) {
                                             <div class="flex justify-between items-center">
                                                 <span class="text-gray-700"><i
                                                         class="fa-solid fa-chart-pie px-1"></i>ปฎิสัมพันธ์กับผู้ใช้งาน</span>
-                                                <button id="btnDownload"
+                                                <button id="btnDownloadtalk"
                                                     class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
                                                     type='button'>
                                                     <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
@@ -543,10 +575,26 @@ if (!isset($_SESSION['id'])) {
                                                 }
                                             }
                                         });
+                                        const btnDownloadtalk = document.querySelector('#btnDownloadtalk');
+                                        const myCanvastalk = document.querySelector('#talk');
+                                        btnDownloadtalk.addEventListener("click", function() {
+                                            console.log('click')
+                                            if (window.navigator.msSaveBlob) {
+                                                window.navigator.msSaveBlob(myCanvastalk.msSaveBlob(),
+                                                    "talk.png");
+                                            } else {
+                                                const a = document.createElement("a");
+                                                document.body.appendChild(a);
+                                                a.href = myCanvastalk.toDataURL();
+                                                a.download = "talk.png";
+                                                a.click();
+                                                document.body.removeChild(a);
+                                            }
+                                        });
                                         </script>
                                     </div>
 
-                                    <!-- chart 2 อธิบายขั้นตอนนต่างๆพร้อมทั้งวิธีแก้ไข -->
+                                    <!-- chart 4 อธิบายขั้นตอนต่างๆพร้อมทั้งวิธีแก้ไข -->
                                     <div
                                         class=" px-6 py-6 bg-white w-5/12 h-auto text-sm text-white rounded-3xl border-gray-700 border-2 m-4">
                                         <div class="pb-4 px-2">
@@ -554,7 +602,7 @@ if (!isset($_SESSION['id'])) {
                                                 <span class="text-gray-700 "><i
                                                         class="fa-solid fa-chart-pie px-1"></i>ให้คำอธิบายถึงการแก้ปัญหา
                                                 </span>
-                                                <button id="btnDownload"
+                                                <button id="btnDownloadguide"
                                                     class="bg-green-500 hover:bg-green-600 text-sm py-1 px-3 rounded-lg"
                                                     type='button'>
                                                     <i class="fa-solid fa-cloud-arrow-down pr-1"></i>
@@ -634,6 +682,22 @@ if (!isset($_SESSION['id'])) {
                                                 }
                                             }
                                         });
+                                        const btnDownloadguide = document.querySelector('#btnDownloadguide');
+                                        const myCanvasguide = document.querySelector('#guide');
+                                        btnDownloadtalk.addEventListener("click", function() {
+                                            console.log('click')
+                                            if (window.navigator.msSaveBlob) {
+                                                window.navigator.msSaveBlob(myCanvasguide.msSaveBlob(),
+                                                    "guide.png");
+                                            } else {
+                                                const a = document.createElement("a");
+                                                document.body.appendChild(a);
+                                                a.href = myCanvasguide.toDataURL();
+                                                a.download = "guide.png";
+                                                a.click();
+                                                document.body.removeChild(a);
+                                            }
+                                        });
                                         </script>
                                     </div>
                                 </div>
@@ -651,5 +715,6 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
 </body>
+
 
 </html>

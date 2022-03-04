@@ -175,7 +175,7 @@ if ($_SESSION['role'] != 'member') {
                                 </h1>
                             </div>
                             <div class="bg-white">
-                                <div class=" container mx-auto px-1">
+                                <div class=" container mx-auto">
                                     <div class="text-gray-700 text-base flex flex-col">
                                         <?php
                                                 $id = $_SESSION['id'];
@@ -197,11 +197,11 @@ if ($_SESSION['role'] != 'member') {
                                                 echo "<tbody>";
                                                 while ($row = $result->fetch_assoc()) {
                                                     echo "<tr align='center' class='bg-white border-b-2 rounded-2xl h-12 text-sm hover:bg-gray-200'>";
-                                                    echo "<td class='border-solid'>" . $row["id"] . "</td>"; 
+                                                    echo "<td class='border-solid'>" . $row["id"] . "</td>";
                                                     echo "<td>" . $row["room"] . "</td>";
                                                     echo "<td>" . $row["item"] . "</td>";
                                                     echo "<td class=''>" . $row["detail"] . "</td>";
-                                                    echo "<td>" . "<div class='bg-green-500 text-white text-sm rounded-md border-b-2 py-2 uppercase '>" . $row["job_status"] . "</div>" . "</td>";
+                                                    echo "<td>" . "<div class='bg-green-400 text-gray-700 text-sm  rounded-md uppercase py-2'>" . $row["job_status"] . "</div>" . "</td>";
                                                     echo "<td class='py-3 text-center'>
                                                                 <div class='flex item-center justify-center'>
                                                                     <form action='detail.php' method='post'>
@@ -221,7 +221,7 @@ if ($_SESSION['role'] != 'member') {
                                                     echo "<div class='px-4 flex flex-col text-sm bg-green-500 py-1'>
                                                             <p class='uppercase'>ยังไม่มีการซ่อมสถานะ SUCCESS</p>
                                                             <p>กรุณารอพนักงานซ่อมดำเนินการ</p>
-                                                          </div>";             
+                                                          </div>";
                                                 }
                                     ?>
                                     </div>
