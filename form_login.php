@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>HelpDesk Systems</title>
-    <link rel="icon" href="../assets/icons/programmer.png" type="image/icon type">
+    <link rel="icon" href="./assets/icons/programmer.png" type="image/icon type">
     <link rel="stylesheet" href="static/dist/tailwind.css" />
 </head>
 

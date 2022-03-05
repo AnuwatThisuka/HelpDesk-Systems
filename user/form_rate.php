@@ -205,16 +205,16 @@ if (!isset($_SESSION['id'])) {
                                     <h5 class="text-sm font-bold text-gray-700 bt-4 mt-6 ml-4">1.ความเร็วในการทำงาน</h5>
                                     <div class="relative mx-6">
                                         <div class="pb-4">
-                                            <div class=""><input value="verygood" type="radio" id="speed_3" name="speed"
-                                                    class=""><label class="text-sm text-gray-700" for="speed_3">
+                                            <div class=""><input value="verygood" type="radio" id="speed_3"
+                                                    name="speed"><label class="text-sm text-gray-700" for="speed_3">
                                                     ดีมาก </label>
                                             </div>
-                                            <div class=""><input value="good" type="radio" id="speed_2" name="speed"
-                                                    class=""><label class="text-sm text-gray-700" for="speed_2">
+                                            <div class=""><input value="good" type="radio" id="speed_2"
+                                                    name="speed"><label class="text-sm text-gray-700" for="speed_2">
                                                     ดี </label>
                                             </div>
-                                            <div class=""><input value="normal" type="radio" id="speed_1" name="speed"
-                                                    class=""><label class="text-sm text-gray-700" for="speed_1">
+                                            <div class=""><input value="normal" type="radio" id="speed_1"
+                                                    name="speed"><label class="text-sm text-gray-700" for="speed_1">
                                                     พอใช้ </label>
                                             </div>
                                         </div>
@@ -224,8 +224,7 @@ if (!isset($_SESSION['id'])) {
                                     <div class="relative mx-6">
                                         <div class="pb-4">
                                             <div class=""><input value="verygood" type="radio" id="perfect_3"
-                                                    name="perfect" class=""><label class="text-sm text-gray-700"
-                                                    for="perfect_3">
+                                                    name="perfect"><label class="text-sm text-gray-700" for="perfect_3">
                                                     ดีมาก </label>
                                             </div>
                                             <div class=""><input value="good" type="radio" id="perfect_2" name="perfect"
@@ -249,8 +248,6 @@ if (!isset($_SESSION['id'])) {
                                             </div>
                                             <div class=""><input value="good" type="radio" id="talk_2" name="talk"
                                                     class=""><label class="text-sm text-gray-700" for="talk_2">
-
-
                                                     ดี </label>
                                             </div>
                                             <div class=""><input value="normal" type="radio" id="talk_1" name="talk"
