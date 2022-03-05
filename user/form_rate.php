@@ -176,9 +176,9 @@ if (!isset($_SESSION['id'])) {
                                 <div class="px-4 pt-4 pb-2 text-gray-700 text-sm font-bold">ประเมินการแจ้งซ่อมของ :
                                     <?php echo "$id" ?>
                                 </div>
-                                <form action="./rate.php" method="POST">
-                                    <input hidden name="job_id" value="<?php echo $id ?>" />
-                                    <input hidden name="repairman_id" value="<?php echo $repairman_id ?>" />
+                                <form action="./rate.php" method="post">
+                                    <input class="hidden" name="job_id" value="<?php echo $id ?>" />
+                                    <input class="hidden" name="repairman_id" value="<?php echo $repairman_id ?>" />
                                     <div class="flex flex-row justify-between px-4">
                                         <div class="w-1/4">
                                             <div class="flex flex-col"><label for="exampleEmail11"
@@ -280,7 +280,7 @@ if (!isset($_SESSION['id'])) {
                                     </div>
                                     <hr />
                                     <div class="p-4">
-                                        <div class="" type="submit">
+                                        <div>
                                             <input type="submit" value="ยืนยัน"
                                                 class="bg-green-500 text-base hover:bg-green-700 text-white w-1/5 py-2 px-4 rounded-full">
                                         </div>

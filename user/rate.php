@@ -95,7 +95,7 @@ $result = mysqli_query($dbcon, $sql);
 if ($result) {
     echo "<script>
                 alert('ประเมินสำเร็จ \\nคุณได้ประเมินการแจ้งซ่อมที่ " . $job_id ."');
-                window.history.back();
+                window.location.href='./detailrate.php';
             </script>";
 } else {
     echo "เกิดข้อผิดพลาด " . mysqli_error($dbcon);
